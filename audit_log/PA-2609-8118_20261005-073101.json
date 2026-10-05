@@ -1,0 +1,195 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:01",
+  "case_id": "PA-2609-8118",
+  "inputs": {
+    "client_id": "SORREL",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-SURG-1582",
+    "date_of_service": "2026-09-30",
+    "urgency": "STANDARD",
+    "member_state": "GA",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Bilateral upper lid dermatochalasis, patient reports difficulty seeing when driving. Humphrey visual field: superior field loss 18 degrees taped vs untaped. External photographs attached. Requesting bilateral upper blepharoplasty.",
+    "age_sent_to_ai": 40,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-SORREL",
+        "sections": [
+          "6.1",
+          "6.2"
+        ]
+      },
+      {
+        "doc": "MP-108 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "6dacc610bd835064",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-SORREL",
+        "section": "6.1"
+      },
+      {
+        "doc": "SPD-SORREL",
+        "section": "6.2"
+      },
+      {
+        "doc": "MP-108 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-108 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-108 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Formal visual field testing showing superior visual field loss of at least 30 degrees\",\n      \"logic\": \"required (AND) - this is the controlling threshold for SORREL plan\",\n      \"source\": {\"doc\": \"SPD-SORREL\", \"section\": \"6.2\"},\n      \"quote\": \"Blepharoplasty is covered ONLY when formal visual field testing shows superior visual field loss of 30 degrees or more.\",\n      \"evidence\": \"superior field loss 18 degrees taped vs untaped\",\n      \"status\": \"CONTRADICTED\",\n      \"note\": \"Provider documented 18 degrees, which is below the required 30 degrees threshold.\"\n    },\n    {\n      \"criterion\": \"Formal visual field testing showing superior visual field loss of at least 12 degrees\",\n      \"logic\": \"required (AND) in medical policy, but superseded by stricter plan requirement\",\n      \"source\": {\"doc\": \"MP-108 v1\", \"section\": \"3\"},\n      \"quote\": \"Formal visual field testing showing superior visual field loss of at least 12 degrees attributable to eyelid position\",\n      \"evidence\": \"superior field loss 18 degrees taped vs untaped\",\n      \"status\": \"NOT_APPLICABLE\",\n      \"note\": \"SPD-SORREL section 6.2 sets a stricter 30-degree threshold that applies instead of this 12-degree medical policy criterion.\"\n    },\n    {\n      \"criterion\": \"Clinical photographs documenting eyelid position\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-108 v1\", \"section\": \"3\"},\n      \"quote\": \"Clinical photographs documenting eyelid position.\",\n      \"evidence\": \"External photographs attached\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider states external photographs are attached.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Cosmetic services exclusion - services primarily intended to improve appearance\",\n      \"source\": {\"doc\": \"SPD-SORREL\", \"section\": \"6.1\"},\n      \"quote\": \"Services primarily intended to improve appearance, including cosmetic rhinoplasty and cosmetic eyelid surgery.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Provider documented functional visual field loss and difficulty seeing when driving, suggesting medical rather than cosmetic purpose.\"\n    },\n    {\n      \"provision\": \"SORREL plan requires 30-degree threshold, stricter than Bellcourt medical policy\",\n      \"source\": {\"doc\": \"SPD-SORREL\", \"section\": \"6.2\"},\n      \"quote\": \"This requirement applies in addition to, and is stricter than, the Bellcourt medical policy. Requests with superior field loss below 30 degrees are not covered under this Plan.\",\n      \"status\": \"NOT_SATISFIED\",\n      \"note\": \"18 degrees documented is below 30 degrees required; 18 < 30.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Formal visual field study (taped and untaped)\",\n      \"source\": {\"doc\": \"MP-108 v1\", \"section\": \"5\"},\n      \"quote\": \"Formal visual field study (taped and untaped), external photographs.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"SORREL plan requires 30-degree superior field loss minimum, stricter than the 12-degree medical policy threshold\",\n    \"Provider documented 18 degrees superior field loss, which is 12 degrees below the plan requirement\",\n    \"Visual field study results mentioned but actual study report not confirmed present in submission\",\n    \"External photographs stated as attached\"\n  ],\n  \"summary_for_nurse\": \"The SORREL plan document requires superior visual field loss of 30 degrees or more for blepharoplasty coverage, which is stricter than the Bellcourt medical policy 12-degree threshold. The provider documented 18 degrees of superior field loss. The actual formal visual field study report should be confirmed present in the submission, along with the external photographs.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Formal visual field testing showing superior visual field loss of at least 30 degrees",
+          "logic": "required (AND) - this is the controlling threshold for SORREL plan",
+          "source": {
+            "doc": "SPD-SORREL",
+            "section": "6.2"
+          },
+          "quote": "Blepharoplasty is covered ONLY when formal visual field testing shows superior visual field loss of 30 degrees or more.",
+          "evidence": "superior field loss 18 degrees taped vs untaped",
+          "status": "CONTRADICTED",
+          "note": "Provider documented 18 degrees, which is below the required 30 degrees threshold.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Formal visual field testing showing superior visual field loss of at least 12 degrees",
+          "logic": "required (AND) in medical policy, but superseded by stricter plan requirement",
+          "source": {
+            "doc": "MP-108 v1",
+            "section": "3"
+          },
+          "quote": "Formal visual field testing showing superior visual field loss of at least 12 degrees attributable to eyelid position",
+          "evidence": "superior field loss 18 degrees taped vs untaped",
+          "status": "NOT_APPLICABLE",
+          "note": "SPD-SORREL section 6.2 sets a stricter 30-degree threshold that applies instead of this 12-degree medical policy criterion.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Clinical photographs documenting eyelid position",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-108 v1",
+            "section": "3"
+          },
+          "quote": "Clinical photographs documenting eyelid position.",
+          "evidence": "External photographs attached",
+          "status": "SUPPORTED",
+          "note": "Provider states external photographs are attached.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Cosmetic services exclusion - services primarily intended to improve appearance",
+          "source": {
+            "doc": "SPD-SORREL",
+            "section": "6.1"
+          },
+          "quote": "Services primarily intended to improve appearance, including cosmetic rhinoplasty and cosmetic eyelid surgery.",
+          "status": "INFO_ONLY",
+          "note": "Provider documented functional visual field loss and difficulty seeing when driving, suggesting medical rather than cosmetic purpose.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "SORREL plan requires 30-degree threshold, stricter than Bellcourt medical policy",
+          "source": {
+            "doc": "SPD-SORREL",
+            "section": "6.2"
+          },
+          "quote": "This requirement applies in addition to, and is stricter than, the Bellcourt medical policy. Requests with superior field loss below 30 degrees are not covered under this Plan.",
+          "status": "NOT_SATISFIED",
+          "note": "18 degrees documented is below 30 degrees required; 18 < 30.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Formal visual field study (taped and untaped)",
+          "source": {
+            "doc": "MP-108 v1",
+            "section": "5"
+          },
+          "quote": "Formal visual field study (taped and untaped), external photographs.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "SORREL plan requires 30-degree superior field loss minimum, stricter than the 12-degree medical policy threshold",
+        "Provider documented 18 degrees superior field loss, which is 12 degrees below the plan requirement",
+        "Visual field study results mentioned but actual study report not confirmed present in submission",
+        "External photographs stated as attached"
+      ],
+      "summary_for_nurse": "The SORREL plan document requires superior visual field loss of 30 degrees or more for blepharoplasty coverage, which is stricter than the Bellcourt medical policy 12-degree threshold. The provider documented 18 degrees of superior field loss. The actual formal visual field study report should be confirmed present in the submission, along with the external photographs."
+    },
+    "guardrail_checks": {
+      "quotes_total": 6,
+      "quotes_verified": 6,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion CONTRADICTED: Formal visual field testing showing superior visual field loss of at least 30 degrees",
+        "Plan provision NOT_SATISFIED: SORREL plan requires 30-degree threshold, stricter than Bellcourt medical policy"
+      ],
+      "missing_documents": [
+        "Missing document: Formal visual field study (taped and untaped)"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

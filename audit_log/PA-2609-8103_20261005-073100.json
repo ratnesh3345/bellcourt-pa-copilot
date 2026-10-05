@@ -1,0 +1,204 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:00",
+  "case_id": "PA-2609-8103",
+  "inputs": {
+    "client_id": "RB-MA",
+    "product": "MA",
+    "service_code": "BHA-SURG-2744",
+    "date_of_service": "2026-09-29",
+    "urgency": "STANDARD",
+    "member_state": "TX",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Left knee OA, KL grade 4 on standing films. BMI 42.6. Unable to walk more than one block, difficulty with stairs and dressing. Conservative mgmt x 6 months (PT, NSAIDs, injections). Pre-op optimization discussed with patient (weight, A1c, smoking) and documented; patient enrolled in pre-hab. Requesting left total knee arthroplasty.",
+    "age_sent_to_ai": 39,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-106 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-106 v1",
+        "reason": "Effective 2024-01-01 to 2025-12-31; date of service 2026-09-29 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED",
+      "TX_AI_DISCLOSURE"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "a67d5a72a4c73ff6",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-106 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-106 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-106 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Radiographic osteoarthritis of Kellgren-Lawrence grade 3 or 4\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-106 v2\", \"section\": \"3\"},\n      \"quote\": \"Radiographic osteoarthritis of Kellgren-Lawrence grade 3 or 4\",\n      \"evidence\": \"KL grade 4 on standing films\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents KL grade 4, which meets the grade 3 or 4 requirement.\"\n    },\n    {\n      \"criterion\": \"Functional limitation interfering with activities of daily living\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-106 v2\", \"section\": \"3\"},\n      \"quote\": \"Functional limitation interfering with activities of daily living\",\n      \"evidence\": \"Unable to walk more than one block, difficulty with stairs and dressing\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents specific ADL limitations including walking, stairs, and dressing.\"\n    },\n    {\n      \"criterion\": \"Failure of at least 3 months of conservative management\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-106 v2\", \"section\": \"3\"},\n      \"quote\": \"Failure of at least 3 months of conservative management\",\n      \"evidence\": \"Conservative mgmt x 6 months (PT, NSAIDs, injections)\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents 6 months of conservative management, exceeding the 3-month requirement.\"\n    },\n    {\n      \"criterion\": \"If BMI is 40 or greater: documentation that a pre-operative risk-optimization discussion (weight, glycemic control, smoking) has taken place\",\n      \"logic\": \"conditional requirement (AND if BMI \u226540)\",\n      \"source\": {\"doc\": \"MP-106 v2\", \"section\": \"3\"},\n      \"quote\": \"If BMI is 40 or greater: documentation that a pre-operative risk-optimization discussion (weight, glycemic control, smoking) has taken place\",\n      \"evidence\": \"BMI 42.6. Pre-op optimization discussed with patient (weight, A1c, smoking) and documented; patient enrolled in pre-hab\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"BMI is 42.6, triggering this requirement; provider documents the required optimization discussion covering weight, glycemic control, and smoking.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medicare Advantage: Medicare coverage rules take precedence over Bellcourt criteria for services where NCD or LCD exists\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Patient is MA product member; no Medicare criteria specified for TKA in the addendum table, so Bellcourt MP-106 applies per section 2 introduction.\"\n    },\n    {\n      \"provision\": \"BMI of 40 or greater without documented risk-optimization discussion is not medically necessary\",\n      \"source\": {\"doc\": \"MP-106 v2\", \"section\": \"4\"},\n      \"quote\": \"BMI of 40 or greater without documented risk-optimization discussion\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"BMI is 42.6, but the required optimization discussion is documented, so this limitation does not apply.\"\n    }\n  ],\n  \"missing_documents\": [],\n  \"points_for_reviewer\": [\n    \"Patient is 39 years old, which is younger than typical TKA population\",\n    \"BMI is 42.6, above the 40 threshold that triggered the optimization discussion requirement\",\n    \"All four medical policy criteria appear supported by the provider notes\",\n    \"Patient is enrolled in pre-hab program per notes\"\n  ],\n  \"summary_for_nurse\": \"The provider requests left total knee arthroplasty for a 39-year-old Medicare Advantage member with KL grade 4 osteoarthritis, BMI 42.6, documented ADL limitations, 6 months of failed conservative treatment, and documented pre-operative optimization discussion. All documentation requirements from MP-106 v2 section 5 appear present in the notes.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Radiographic osteoarthritis of Kellgren-Lawrence grade 3 or 4",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-106 v2",
+            "section": "3"
+          },
+          "quote": "Radiographic osteoarthritis of Kellgren-Lawrence grade 3 or 4",
+          "evidence": "KL grade 4 on standing films",
+          "status": "SUPPORTED",
+          "note": "Provider documents KL grade 4, which meets the grade 3 or 4 requirement.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Functional limitation interfering with activities of daily living",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-106 v2",
+            "section": "3"
+          },
+          "quote": "Functional limitation interfering with activities of daily living",
+          "evidence": "Unable to walk more than one block, difficulty with stairs and dressing",
+          "status": "SUPPORTED",
+          "note": "Provider documents specific ADL limitations including walking, stairs, and dressing.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Failure of at least 3 months of conservative management",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-106 v2",
+            "section": "3"
+          },
+          "quote": "Failure of at least 3 months of conservative management",
+          "evidence": "Conservative mgmt x 6 months (PT, NSAIDs, injections)",
+          "status": "SUPPORTED",
+          "note": "Provider documents 6 months of conservative management, exceeding the 3-month requirement.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "If BMI is 40 or greater: documentation that a pre-operative risk-optimization discussion (weight, glycemic control, smoking) has taken place",
+          "logic": "conditional requirement (AND if BMI \u226540)",
+          "source": {
+            "doc": "MP-106 v2",
+            "section": "3"
+          },
+          "quote": "If BMI is 40 or greater: documentation that a pre-operative risk-optimization discussion (weight, glycemic control, smoking) has taken place",
+          "evidence": "BMI 42.6. Pre-op optimization discussed with patient (weight, A1c, smoking) and documented; patient enrolled in pre-hab",
+          "status": "SUPPORTED",
+          "note": "BMI is 42.6, triggering this requirement; provider documents the required optimization discussion covering weight, glycemic control, and smoking.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": false
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medicare Advantage: Medicare coverage rules take precedence over Bellcourt criteria for services where NCD or LCD exists",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied",
+          "status": "INFO_ONLY",
+          "note": "Patient is MA product member; no Medicare criteria specified for TKA in the addendum table, so Bellcourt MP-106 applies per section 2 introduction.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "BMI of 40 or greater without documented risk-optimization discussion is not medically necessary",
+          "source": {
+            "doc": "MP-106 v2",
+            "section": "4"
+          },
+          "quote": "BMI of 40 or greater without documented risk-optimization discussion",
+          "status": "SATISFIED",
+          "note": "BMI is 42.6, but the required optimization discussion is documented, so this limitation does not apply.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [],
+      "points_for_reviewer": [
+        "Patient is 39 years old, which is younger than typical TKA population",
+        "BMI is 42.6, above the 40 threshold that triggered the optimization discussion requirement",
+        "All four medical policy criteria appear supported by the provider notes",
+        "Patient is enrolled in pre-hab program per notes"
+      ],
+      "summary_for_nurse": "The provider requests left total knee arthroplasty for a 39-year-old Medicare Advantage member with KL grade 4 osteoarthritis, BMI 42.6, documented ADL limitations, 6 months of failed conservative treatment, and documented pre-operative optimization discussion. All documentation requirements from MP-106 v2 section 5 appear present in the notes."
+    },
+    "guardrail_checks": {
+      "quotes_total": 6,
+      "quotes_verified": 6,
+      "all_quotes_verified": true,
+      "issues": [
+        "criteria: evidence not found in the notes (\"BMI 42.6. Pre-op optimization discussed with patient (weight...\")."
+      ],
+      "passed": false,
+      "needs_attention": [],
+      "missing_documents": []
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

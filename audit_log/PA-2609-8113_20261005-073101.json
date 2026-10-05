@@ -1,0 +1,226 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:01",
+  "case_id": "PA-2609-8113",
+  "inputs": {
+    "client_id": "HARLAN",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-IMG-0721",
+    "date_of_service": "2026-10-07",
+    "urgency": "URGENT",
+    "member_state": null,
+    "eligibility": "UNKNOWN",
+    "notes_sent_to_ai": "Patient presents with low back pain radiating down the left leg in an-L5 distribution With positive straight-leg raise. Has completed 8 weeks of PT-and scheduled naproxen without adequate relief..Requesting MRI lumbar spine without contrast.",
+    "age_sent_to_ai": 44,
+    "identity_removed": {}
+  },
+  "intake_issues": [
+    {
+      "code": "URGENCY_MISMATCH",
+      "message": "Fax form says URGENT, system says STANDARD. Using URGENT (72 h) until a person confirms."
+    },
+    {
+      "code": "MISSING_MEMBER_ID",
+      "message": "Missing: Member ID."
+    },
+    {
+      "code": "ELIGIBILITY_UNKNOWN",
+      "message": "No member ID: search PACE by name + date of birth, or call the provider."
+    }
+  ],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-HARLAN",
+        "sections": [
+          "5.1"
+        ]
+      },
+      {
+        "doc": "MP-101 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-101 v1",
+        "reason": "Effective 2024-01-01 to 2025-12-31; date of service 2026-10-07 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "68fe1370421da3ee",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-HARLAN",
+        "section": "5.1"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes do not document any red-flag conditions.\"\n    },\n    {\n      \"criterion\": \"Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy\",\n      \"evidence\": \"low back pain radiating down the left leg in an-L5 distribution With positive straight-leg raise. Has completed 8 weeks of PT-and scheduled naproxen without adequate relief.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Patient has radicular pain in L5 distribution with 8 weeks of PT and naproxen, exceeding the 4-week requirement.\"\n    },\n    {\n      \"criterion\": \"Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes do not mention scheduled or recommended spine surgery.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medical necessity determined using Bellcourt medical policy library, subject to any stricter or more specific provision of the Plan\",\n      \"source\": {\"doc\": \"SPD-HARLAN\", \"section\": \"5.1\"},\n      \"quote\": \"Medical necessity is determined using the Bellcourt medical policy library in effect on the date of service, subject to any stricter or more specific provision of this Plan.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"No conflicting provisions identified in the Plan document.\"\n    },\n    {\n      \"provision\": \"Exclusion for uncomplicated low back pain without radiculopathy and without red flags\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"4\"},\n      \"quote\": \"Uncomplicated low back pain without radiculopathy and without red flags.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"This exclusion does not apply because patient has radiculopathy (L5 radicular pain).\"\n    },\n    {\n      \"provision\": \"Exclusion for imaging requested solely for reassurance or at patient request\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"4\"},\n      \"quote\": \"Imaging requested solely for reassurance or at patient request.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Request is for clinical evaluation of radiculopathy, not solely for reassurance.\"\n    },\n    {\n      \"provision\": \"Investigational services are excluded from coverage\",\n      \"source\": {\"doc\": \"MP-117 v1\", \"section\": \"4\"},\n      \"quote\": \"Investigational services are excluded from coverage under every plan Bellcourt administers.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"MRI lumbar spine is FDA-approved and standard of care for radiculopathy evaluation.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Office notes documenting neurological exam\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"5\"},\n      \"quote\": \"Office notes documenting symptom duration, neurological exam, conservative therapy type and duration\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Patient has L5 radicular pain with positive straight-leg raise, meeting radiculopathy criterion\",\n    \"Conservative therapy duration is 8 weeks (PT and naproxen), exceeding 4-week requirement\",\n    \"Neurological exam details beyond straight-leg raise test are not documented\",\n    \"Request marked URGENT by provider\"\n  ],\n  \"summary_for_nurse\": \"Patient has radicular pain in L5 distribution with positive straight-leg raise after 8 weeks of physical therapy and naproxen. This meets criterion 2 of MP-101 v2 section 3 (radiculopathy with at least 4 weeks conservative therapy). Documentation of neurological exam details beyond the straight-leg raise is not present in the notes.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes do not document any red-flag conditions.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+          "evidence": "low back pain radiating down the left leg in an-L5 distribution With positive straight-leg raise. Has completed 8 weeks of PT-and scheduled naproxen without adequate relief.",
+          "status": "SUPPORTED",
+          "note": "Patient has radicular pain in L5 distribution with 8 weeks of PT and naproxen, exceeding the 4-week requirement.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes do not mention scheduled or recommended spine surgery.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medical necessity determined using Bellcourt medical policy library, subject to any stricter or more specific provision of the Plan",
+          "source": {
+            "doc": "SPD-HARLAN",
+            "section": "5.1"
+          },
+          "quote": "Medical necessity is determined using the Bellcourt medical policy library in effect on the date of service, subject to any stricter or more specific provision of this Plan.",
+          "status": "INFO_ONLY",
+          "note": "No conflicting provisions identified in the Plan document.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Exclusion for uncomplicated low back pain without radiculopathy and without red flags",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "4"
+          },
+          "quote": "Uncomplicated low back pain without radiculopathy and without red flags.",
+          "status": "SATISFIED",
+          "note": "This exclusion does not apply because patient has radiculopathy (L5 radicular pain).",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Exclusion for imaging requested solely for reassurance or at patient request",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "4"
+          },
+          "quote": "Imaging requested solely for reassurance or at patient request.",
+          "status": "SATISFIED",
+          "note": "Request is for clinical evaluation of radiculopathy, not solely for reassurance.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Investigational services are excluded from coverage",
+          "source": {
+            "doc": "MP-117 v1",
+            "section": "4"
+          },
+          "quote": "Investigational services are excluded from coverage under every plan Bellcourt administers.",
+          "status": "SATISFIED",
+          "note": "MRI lumbar spine is FDA-approved and standard of care for radiculopathy evaluation.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Office notes documenting neurological exam",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "5"
+          },
+          "quote": "Office notes documenting symptom duration, neurological exam, conservative therapy type and duration",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Patient has L5 radicular pain with positive straight-leg raise, meeting radiculopathy criterion",
+        "Conservative therapy duration is 8 weeks (PT and naproxen), exceeding 4-week requirement",
+        "Neurological exam details beyond straight-leg raise test are not documented",
+        "Request marked URGENT by provider"
+      ],
+      "summary_for_nurse": "Patient has radicular pain in L5 distribution with positive straight-leg raise after 8 weeks of physical therapy and naproxen. This meets criterion 2 of MP-101 v2 section 3 (radiculopathy with at least 4 weeks conservative therapy). Documentation of neurological exam details beyond the straight-leg raise is not present in the notes."
+    },
+    "guardrail_checks": {
+      "quotes_total": 8,
+      "quotes_verified": 8,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [],
+      "missing_documents": [
+        "Missing document: Office notes documenting neurological exam"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

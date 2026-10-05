@@ -1,0 +1,210 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:01",
+  "case_id": "PA-2609-8125",
+  "inputs": {
+    "client_id": "HARLAN",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-THER-1830",
+    "date_of_service": "2026-10-12",
+    "urgency": "URGENT",
+    "member_state": null,
+    "eligibility": "UNKNOWN",
+    "notes_sent_to_ai": "8 y/o with autism spectrum disorder; parents request HBOT to improve behavior and speech. Requesting HBOT x 40 sessions.",
+    "age_sent_to_ai": 26,
+    "identity_removed": {}
+  },
+  "intake_issues": [
+    {
+      "code": "URGENCY_MISMATCH",
+      "message": "Fax form says STANDARD, system says URGENT. Using URGENT (72 h) until a person confirms."
+    },
+    {
+      "code": "MISSING_MEMBER_ID",
+      "message": "Missing: Member ID."
+    },
+    {
+      "code": "ELIGIBILITY_UNKNOWN",
+      "message": "No member ID: search PACE by name + date of birth, or call the provider."
+    },
+    {
+      "code": "AGE_MISMATCH",
+      "message": "Notes say 8 years old, but the date of birth gives 26. Confirm the patient's identity."
+    }
+  ],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-HARLAN",
+        "sections": [
+          "5.1"
+        ]
+      },
+      {
+        "doc": "MP-112 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "3500b935ce6169b6",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-HARLAN",
+        "section": "5.1"
+      },
+      {
+        "doc": "MP-112 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-112 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-112 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Diabetic lower-extremity wound of Wagner grade 3 or higher that has failed at least 30 days of standard wound care\",\n      \"logic\": \"one of 2 options (OR)\",\n      \"source\": {\"doc\": \"MP-112 v1\", \"section\": \"3\"},\n      \"quote\": \"Diabetic lower-extremity wound of Wagner grade 3 or higher that has failed at least 30 days of standard wound care\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes describe autism spectrum disorder, not diabetic wound.\"\n    },\n    {\n      \"criterion\": \"Soft-tissue or bone radiation necrosis\",\n      \"logic\": \"one of 2 options (OR)\",\n      \"source\": {\"doc\": \"MP-112 v1\", \"section\": \"3\"},\n      \"quote\": \"Soft-tissue or bone radiation necrosis.\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes describe autism spectrum disorder, not radiation necrosis.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"HBOT for autism spectrum disorder is classified as investigational and excluded from coverage\",\n      \"source\": {\"doc\": \"MP-112 v1\", \"section\": \"4\"},\n      \"quote\": \"HBOT is considered experimental and investigational (see MP-117) and is excluded from coverage for the following indications: \u2022 Autism spectrum disorder\",\n      \"status\": \"NOT_SATISFIED\",\n      \"note\": \"The requested indication is autism spectrum disorder, which is explicitly listed as investigational and excluded.\"\n    },\n    {\n      \"provision\": \"Investigational services are excluded from coverage under every plan\",\n      \"source\": {\"doc\": \"MP-117 v1\", \"section\": \"4\"},\n      \"quote\": \"Investigational services are excluded from coverage under every plan Bellcourt administers.\",\n      \"status\": \"NOT_SATISFIED\",\n      \"note\": \"HBOT for autism is investigational per MP-112 section 4, triggering this exclusion.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Wound measurements\",\n      \"source\": {\"doc\": \"MP-112 v1\", \"section\": \"5\"},\n      \"quote\": \"Wound measurements, Wagner grade, wound-care log; radiation history if applicable.\"\n    },\n    {\n      \"item\": \"Wagner grade\",\n      \"source\": {\"doc\": \"MP-112 v1\", \"section\": \"5\"},\n      \"quote\": \"Wound measurements, Wagner grade, wound-care log; radiation history if applicable.\"\n    },\n    {\n      \"item\": \"Wound-care log\",\n      \"source\": {\"doc\": \"MP-112 v1\", \"section\": \"5\"},\n      \"quote\": \"Wound measurements, Wagner grade, wound-care log; radiation history if applicable.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Patient age in provider notes is 8 years old, but request header shows age 26 on date of service\",\n    \"The indication is autism spectrum disorder, which MP-112 section 4 explicitly lists as investigational and excluded\",\n    \"None of the covered indications (diabetic wound Wagner 3+, radiation necrosis) are documented\",\n    \"MP-117 section 4 states investigational exclusions are coverage determinations, not medical necessity determinations\"\n  ],\n  \"summary_for_nurse\": \"The request is for HBOT to treat autism spectrum disorder in a patient described as 8 years old. MP-112 section 4 explicitly classifies HBOT for autism as investigational and excluded from coverage. None of the two covered indications (diabetic wound Wagner grade 3+ or radiation necrosis) are documented in the provider notes.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Diabetic lower-extremity wound of Wagner grade 3 or higher that has failed at least 30 days of standard wound care",
+          "logic": "one of 2 options (OR)",
+          "source": {
+            "doc": "MP-112 v1",
+            "section": "3"
+          },
+          "quote": "Diabetic lower-extremity wound of Wagner grade 3 or higher that has failed at least 30 days of standard wound care",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes describe autism spectrum disorder, not diabetic wound.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "Soft-tissue or bone radiation necrosis",
+          "logic": "one of 2 options (OR)",
+          "source": {
+            "doc": "MP-112 v1",
+            "section": "3"
+          },
+          "quote": "Soft-tissue or bone radiation necrosis.",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes describe autism spectrum disorder, not radiation necrosis.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "HBOT for autism spectrum disorder is classified as investigational and excluded from coverage",
+          "source": {
+            "doc": "MP-112 v1",
+            "section": "4"
+          },
+          "quote": "HBOT is considered experimental and investigational (see MP-117) and is excluded from coverage for the following indications: \u2022 Autism spectrum disorder",
+          "status": "NOT_SATISFIED",
+          "note": "The requested indication is autism spectrum disorder, which is explicitly listed as investigational and excluded.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Investigational services are excluded from coverage under every plan",
+          "source": {
+            "doc": "MP-117 v1",
+            "section": "4"
+          },
+          "quote": "Investigational services are excluded from coverage under every plan Bellcourt administers.",
+          "status": "NOT_SATISFIED",
+          "note": "HBOT for autism is investigational per MP-112 section 4, triggering this exclusion.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Wound measurements",
+          "source": {
+            "doc": "MP-112 v1",
+            "section": "5"
+          },
+          "quote": "Wound measurements, Wagner grade, wound-care log; radiation history if applicable.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Wagner grade",
+          "source": {
+            "doc": "MP-112 v1",
+            "section": "5"
+          },
+          "quote": "Wound measurements, Wagner grade, wound-care log; radiation history if applicable.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Wound-care log",
+          "source": {
+            "doc": "MP-112 v1",
+            "section": "5"
+          },
+          "quote": "Wound measurements, Wagner grade, wound-care log; radiation history if applicable.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Patient age in provider notes is 8 years old, but request header shows age 26 on date of service",
+        "The indication is autism spectrum disorder, which MP-112 section 4 explicitly lists as investigational and excluded",
+        "None of the covered indications (diabetic wound Wagner 3+, radiation necrosis) are documented",
+        "MP-117 section 4 states investigational exclusions are coverage determinations, not medical necessity determinations"
+      ],
+      "summary_for_nurse": "The request is for HBOT to treat autism spectrum disorder in a patient described as 8 years old. MP-112 section 4 explicitly classifies HBOT for autism as investigational and excluded from coverage. None of the two covered indications (diabetic wound Wagner grade 3+ or radiation necrosis) are documented in the provider notes."
+    },
+    "guardrail_checks": {
+      "quotes_total": 7,
+      "quotes_verified": 7,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion NOT_FOUND: Diabetic lower-extremity wound of Wagner grade 3 or higher that has failed at least 30 days of standard wound care OR Soft-tissue or bone radiation necrosis",
+        "Plan provision NOT_SATISFIED: HBOT for autism spectrum disorder is classified as investigational and excluded from coverage",
+        "Plan provision NOT_SATISFIED: Investigational services are excluded from coverage under every plan"
+      ],
+      "missing_documents": [
+        "Missing document: Wound measurements",
+        "Missing document: Wagner grade",
+        "Missing document: Wound-care log"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

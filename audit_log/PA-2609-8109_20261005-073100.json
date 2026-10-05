@@ -1,0 +1,220 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:00",
+  "case_id": "PA-2609-8109",
+  "inputs": {
+    "client_id": "RB-ACA",
+    "product": "ACA",
+    "service_code": "BHA-SURG-4310",
+    "date_of_service": "2026-10-04",
+    "urgency": "STANDARD",
+    "member_state": "GA",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). BMI 44.1. Comorbidities: type 2 diabetes on metformin. Participated in physician-supervised weight management program for 6 months (2024-2025). Psychological evaluation completed; cleared for surgery. Requesting laparoscopic sleeve gastrectomy.",
+    "age_sent_to_ai": 60,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-102 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-102 v1",
+        "reason": "Effective 2024-01-01 to 2025-06-30; date of service 2026-10-04 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "379ac695750e2173",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-102 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-102 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-102 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"BMI of 40 or greater, OR BMI of 35 or greater with at least one obesity-related comorbidity\",\n      \"logic\": \"required (AND) - this is criterion 1 of 2\",\n      \"source\": {\"doc\": \"MP-102 v2\", \"section\": \"3\"},\n      \"quote\": \"BMI of 40 or greater; OR BMI of 35 or greater with at least one obesity-related comorbidity (type 2 diabetes, hypertension, obstructive sleep apnea, or dyslipidemia)\",\n      \"evidence\": \"BMI 44.1. Comorbidities: type 2 diabetes on metformin.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"BMI 44.1 exceeds the 40 threshold; also meets the alternative 35+ with diabetes criterion.\"\n    },\n    {\n      \"criterion\": \"Pre-operative psychological evaluation clearing the member for surgery\",\n      \"logic\": \"required (AND) - this is criterion 2 of 2\",\n      \"source\": {\"doc\": \"MP-102 v2\", \"section\": \"3\"},\n      \"quote\": \"A pre-operative psychological evaluation clearing the member for surgery.\",\n      \"evidence\": \"Psychological evaluation completed; cleared for surgery.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider states evaluation was completed and patient was cleared.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Bellcourt medical policies apply without modification for Marketplace product\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.2\"},\n      \"quote\": \"Bellcourt medical policies apply without modification.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Confirms MP-102 v2 criteria govern this ACA product request.\"\n    },\n    {\n      \"provision\": \"Only a licensed physician may issue a denial based on medical necessity\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"4\"},\n      \"quote\": \"Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Procedural requirement for any denial decision.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Height and weight measurements\",\n      \"source\": {\"doc\": \"MP-102 v2\", \"section\": \"5\"},\n      \"quote\": \"Height, weight and BMI\"\n    },\n    {\n      \"item\": \"Comorbidity documentation\",\n      \"source\": {\"doc\": \"MP-102 v2\", \"section\": \"5\"},\n      \"quote\": \"comorbidity documentation\"\n    },\n    {\n      \"item\": \"Psychological evaluation report\",\n      \"source\": {\"doc\": \"MP-102 v2\", \"section\": \"5\"},\n      \"quote\": \"psychological evaluation report\"\n    },\n    {\n      \"item\": \"Weight-management program records where required\",\n      \"source\": {\"doc\": \"MP-102 v2\", \"section\": \"5\"},\n      \"quote\": \"weight-management program records where required\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Provider states BMI 44.1 and type 2 diabetes on metformin, meeting both coverage criteria\",\n    \"Provider states psychological evaluation cleared patient for surgery\",\n    \"Provider mentions 6-month physician-supervised weight management program but policy section 3 does not require this\",\n    \"Actual documentation (height, weight, diabetes records, psychological report, weight program records) not attached to request\",\n    \"Section 5 states request must be pended for missing documentation, not denied, until information request goes unanswered\"\n  ],\n  \"summary_for_nurse\": \"The provider's notes state BMI 44.1 with type 2 diabetes and psychological clearance, which align with the two coverage criteria in MP-102 v2 section 3. However, the actual documentation listed in section 5 (height/weight measurements, comorbidity records, psychological evaluation report, and weight-management program records) is not attached. Section 5 requires pending the request and contacting the provider for missing documentation rather than proceeding without it.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "BMI of 40 or greater, OR BMI of 35 or greater with at least one obesity-related comorbidity",
+          "logic": "required (AND) - this is criterion 1 of 2",
+          "source": {
+            "doc": "MP-102 v2",
+            "section": "3"
+          },
+          "quote": "BMI of 40 or greater; OR BMI of 35 or greater with at least one obesity-related comorbidity (type 2 diabetes, hypertension, obstructive sleep apnea, or dyslipidemia)",
+          "evidence": "BMI 44.1. Comorbidities: type 2 diabetes on metformin.",
+          "status": "SUPPORTED",
+          "note": "BMI 44.1 exceeds the 40 threshold; also meets the alternative 35+ with diabetes criterion.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Pre-operative psychological evaluation clearing the member for surgery",
+          "logic": "required (AND) - this is criterion 2 of 2",
+          "source": {
+            "doc": "MP-102 v2",
+            "section": "3"
+          },
+          "quote": "A pre-operative psychological evaluation clearing the member for surgery.",
+          "evidence": "Psychological evaluation completed; cleared for surgery.",
+          "status": "SUPPORTED",
+          "note": "Provider states evaluation was completed and patient was cleared.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Bellcourt medical policies apply without modification for Marketplace product",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.2"
+          },
+          "quote": "Bellcourt medical policies apply without modification.",
+          "status": "INFO_ONLY",
+          "note": "Confirms MP-102 v2 criteria govern this ACA product request.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Only a licensed physician may issue a denial based on medical necessity",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "4"
+          },
+          "quote": "Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.",
+          "status": "INFO_ONLY",
+          "note": "Procedural requirement for any denial decision.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Height and weight measurements",
+          "source": {
+            "doc": "MP-102 v2",
+            "section": "5"
+          },
+          "quote": "Height, weight and BMI",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Comorbidity documentation",
+          "source": {
+            "doc": "MP-102 v2",
+            "section": "5"
+          },
+          "quote": "comorbidity documentation",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Psychological evaluation report",
+          "source": {
+            "doc": "MP-102 v2",
+            "section": "5"
+          },
+          "quote": "psychological evaluation report",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Weight-management program records where required",
+          "source": {
+            "doc": "MP-102 v2",
+            "section": "5"
+          },
+          "quote": "weight-management program records where required",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Provider states BMI 44.1 and type 2 diabetes on metformin, meeting both coverage criteria",
+        "Provider states psychological evaluation cleared patient for surgery",
+        "Provider mentions 6-month physician-supervised weight management program but policy section 3 does not require this",
+        "Actual documentation (height, weight, diabetes records, psychological report, weight program records) not attached to request",
+        "[sentence removed by guardrail: it told staff what to decide]"
+      ],
+      "summary_for_nurse": "The provider's notes state BMI 44.1 with type 2 diabetes and psychological clearance, which align with the two coverage criteria in MP-102 v2 section 3. However, the actual documentation listed in section 5 (height/weight measurements, comorbidity records, psychological evaluation report, and weight-management program records) is not attached. Section 5 requires pending the request and contacting the provider for missing documentation rather than proceeding without it."
+    },
+    "guardrail_checks": {
+      "quotes_total": 8,
+      "quotes_verified": 8,
+      "all_quotes_verified": true,
+      "issues": [
+        "Decision language removed: \"Section 5 states request must be pended for missing documentation, not denied, until infor\""
+      ],
+      "passed": false,
+      "needs_attention": [],
+      "missing_documents": [
+        "Missing document: Height and weight measurements",
+        "Missing document: Comorbidity documentation",
+        "Missing document: Psychological evaluation report",
+        "Missing document: Weight-management program records where required"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

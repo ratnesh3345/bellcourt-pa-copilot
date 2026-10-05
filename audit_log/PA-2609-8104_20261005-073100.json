@@ -1,0 +1,177 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:00",
+  "case_id": "PA-2609-8104",
+  "inputs": {
+    "client_id": "RB-MA",
+    "product": "MA",
+    "service_code": "BHA-HH-0550",
+    "date_of_service": "2026-10-01",
+    "urgency": "STANDARD",
+    "member_state": "TX",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Leaves home only for medical visits with assistance of walker and caregiver; considerable effort. Needs skilled nursing for wound care and IV antibiotic teaching. Plan of care signed by Dr. Osei.",
+    "age_sent_to_ai": 68,
+    "identity_removed": {}
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.1",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-116 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": [
+      "MEDICARE_CRITERIA",
+      "TX_AI_DISCLOSURE"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "48b654c9bc848a9c",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.1"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-116 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-116 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-116 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Member is homebound (leaving home requires considerable and taxing effort)\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-116 v1\", \"section\": \"3\"},\n      \"quote\": \"The member is homebound (leaving home requires considerable and taxing effort)\",\n      \"evidence\": \"Leaves home only for medical visits with assistance of walker and caregiver; considerable effort.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes state leaving home requires considerable effort with walker and caregiver assistance.\"\n    },\n    {\n      \"criterion\": \"Member needs intermittent skilled nursing or therapy services\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-116 v1\", \"section\": \"3\"},\n      \"quote\": \"The member needs intermittent skilled nursing or therapy services\",\n      \"evidence\": \"Needs skilled nursing for wound care and IV antibiotic teaching.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes document skilled nursing need for wound care and IV antibiotic teaching.\"\n    },\n    {\n      \"criterion\": \"Plan of care signed by treating physician\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-116 v1\", \"section\": \"3\"},\n      \"quote\": \"A plan of care signed by the treating physician\",\n      \"evidence\": \"Plan of care signed by Dr. Osei.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes confirm plan of care signed by Dr. Osei.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medicare Advantage override: Medicare criteria apply for home health services, Bellcourt criteria may not be more restrictive\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied and Bellcourt criteria may not be more restrictive.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Member has MA product; Addendum directs to apply MP-116 criteria for home health services.\"\n    },\n    {\n      \"provision\": \"Exclusion: Custodial care only with no skilled need is not medically necessary\",\n      \"source\": {\"doc\": \"MP-116 v1\", \"section\": \"4\"},\n      \"quote\": \"Custodial care only (bathing, dressing, meal preparation) with no skilled need.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Request involves skilled nursing services, not custodial care only.\"\n    }\n  ],\n  \"missing_documents\": [],\n  \"points_for_reviewer\": [\n    \"All three required criteria from MP-116 appear supported by provider notes\",\n    \"Member is MA product; Riverbend Addendum 2.1 confirms MP-116 criteria apply\",\n    \"Skilled need documented as wound care and IV antibiotic teaching\",\n    \"Homebound status documented with considerable effort required to leave home\"\n  ],\n  \"summary_for_nurse\": \"The provider notes document homebound status with considerable effort to leave home, skilled nursing need for wound care and IV antibiotic teaching, and a signed plan of care by Dr. Osei. All three required criteria from MP-116 appear to have supporting evidence in the submitted documentation. This is a Medicare Advantage member and Riverbend Addendum 2.1 confirms MP-116 criteria apply for home health services.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Member is homebound (leaving home requires considerable and taxing effort)",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-116 v1",
+            "section": "3"
+          },
+          "quote": "The member is homebound (leaving home requires considerable and taxing effort)",
+          "evidence": "Leaves home only for medical visits with assistance of walker and caregiver; considerable effort.",
+          "status": "SUPPORTED",
+          "note": "Provider notes state leaving home requires considerable effort with walker and caregiver assistance.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Member needs intermittent skilled nursing or therapy services",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-116 v1",
+            "section": "3"
+          },
+          "quote": "The member needs intermittent skilled nursing or therapy services",
+          "evidence": "Needs skilled nursing for wound care and IV antibiotic teaching.",
+          "status": "SUPPORTED",
+          "note": "Provider notes document skilled nursing need for wound care and IV antibiotic teaching.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Plan of care signed by treating physician",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-116 v1",
+            "section": "3"
+          },
+          "quote": "A plan of care signed by the treating physician",
+          "evidence": "Plan of care signed by Dr. Osei.",
+          "status": "SUPPORTED",
+          "note": "Provider notes confirm plan of care signed by Dr. Osei.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medicare Advantage override: Medicare criteria apply for home health services, Bellcourt criteria may not be more restrictive",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied and Bellcourt criteria may not be more restrictive.",
+          "status": "INFO_ONLY",
+          "note": "Member has MA product; Addendum directs to apply MP-116 criteria for home health services.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Exclusion: Custodial care only with no skilled need is not medically necessary",
+          "source": {
+            "doc": "MP-116 v1",
+            "section": "4"
+          },
+          "quote": "Custodial care only (bathing, dressing, meal preparation) with no skilled need.",
+          "status": "SATISFIED",
+          "note": "Request involves skilled nursing services, not custodial care only.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [],
+      "points_for_reviewer": [
+        "All three required criteria from MP-116 appear supported by provider notes",
+        "Member is MA product; Riverbend Addendum 2.1 confirms MP-116 criteria apply",
+        "Skilled need documented as wound care and IV antibiotic teaching",
+        "Homebound status documented with considerable effort required to leave home"
+      ],
+      "summary_for_nurse": "The provider notes document homebound status with considerable effort to leave home, skilled nursing need for wound care and IV antibiotic teaching, and a signed plan of care by Dr. Osei. All three required criteria from MP-116 appear to have supporting evidence in the submitted documentation. This is a Medicare Advantage member and Riverbend Addendum 2.1 confirms MP-116 criteria apply for home health services."
+    },
+    "guardrail_checks": {
+      "quotes_total": 5,
+      "quotes_verified": 5,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [],
+      "missing_documents": []
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

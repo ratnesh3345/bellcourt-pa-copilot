@@ -1,0 +1,160 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:42:54",
+  "case_id": "PA-2609-8102",
+  "inputs": {
+    "client_id": "RB-MA",
+    "product": "MA",
+    "service_code": "BHA-DME-0601",
+    "date_of_service": "2026-10-18",
+    "urgency": "STANDARD",
+    "member_state": "TX",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "OSA on CPAP since initial setup ~80 days ago. Download (30 consecutive days): usage >= 4 hrs on 45% of nights. Requesting continued CPAP coverage.",
+    "age_sent_to_ai": 53,
+    "identity_removed": {}
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.1",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-118 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": [
+      "MEDICARE_CRITERIA",
+      "TX_AI_DISCLOSURE"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "a771711d7af6ba35",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.1"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-118 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-118 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-118 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"CPAP use of 4 or more hours per night on at least 70% of nights during a consecutive 30-day period within the first 90 days\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"4 or more hours per night on at least 70% of nights in a consecutive 30-day period within the first 90 days\",\n      \"evidence\": \"Download (30 consecutive days): usage >= 4 hrs on 45% of nights\",\n      \"status\": \"CONTRADICTED\",\n      \"note\": \"Provider reports 45% of nights meet the threshold, but 70% is required.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medicare Advantage members: Medicare criteria apply and Bellcourt criteria may not be more restrictive\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied and Bellcourt criteria may not be more restrictive.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"This is an MA member, so the Medicare-aligned criteria in the Addendum apply rather than any different Bellcourt criteria.\"\n    },\n    {\n      \"provision\": \"Only a licensed physician may issue a denial based on medical necessity\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"4\"},\n      \"quote\": \"Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Procedural requirement for any adverse determination.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Device compliance download covering a consecutive 30-day period\",\n      \"source\": {\"doc\": \"MP-118 v1\", \"section\": \"5\"},\n      \"quote\": \"Device compliance download covering a consecutive 30-day period.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Provider reports 45% of nights with 4+ hours usage, but 70% is required\",\n    \"Download document itself is not attached to the request\",\n    \"Patient is at approximately 80 days since initial setup, within the 90-day evaluation window\",\n    \"This is an MA member, so Medicare-aligned criteria from Riverbend Addendum section 2.1 apply\"\n  ],\n  \"summary_for_nurse\": \"The request is for continued CPAP coverage for a 53-year-old MA member approximately 80 days after initial setup. The provider reports usage of 4 or more hours on 45% of nights over a 30-day period, but the applicable Medicare-aligned criteria require 70% of nights. The actual device compliance download is not attached.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "CPAP use of 4 or more hours per night on at least 70% of nights during a consecutive 30-day period within the first 90 days",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "4 or more hours per night on at least 70% of nights in a consecutive 30-day period within the first 90 days",
+          "evidence": "Download (30 consecutive days): usage >= 4 hrs on 45% of nights",
+          "status": "CONTRADICTED",
+          "note": "Provider reports 45% of nights meet the threshold, but 70% is required.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medicare Advantage members: Medicare criteria apply and Bellcourt criteria may not be more restrictive",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied and Bellcourt criteria may not be more restrictive.",
+          "status": "INFO_ONLY",
+          "note": "This is an MA member, so the Medicare-aligned criteria in the Addendum apply rather than any different Bellcourt criteria.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Only a licensed physician may issue a denial based on medical necessity",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "4"
+          },
+          "quote": "Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.",
+          "status": "INFO_ONLY",
+          "note": "Procedural requirement for any adverse determination.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Device compliance download covering a consecutive 30-day period",
+          "source": {
+            "doc": "MP-118 v1",
+            "section": "5"
+          },
+          "quote": "Device compliance download covering a consecutive 30-day period.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Provider reports 45% of nights with 4+ hours usage, but 70% is required",
+        "Download document itself is not attached to the request",
+        "Patient is at approximately 80 days since initial setup, within the 90-day evaluation window",
+        "This is an MA member, so Medicare-aligned criteria from Riverbend Addendum section 2.1 apply"
+      ],
+      "summary_for_nurse": "The request is for continued CPAP coverage for a 53-year-old MA member approximately 80 days after initial setup. The provider reports usage of 4 or more hours on 45% of nights over a 30-day period, but the applicable Medicare-aligned criteria require 70% of nights. The actual device compliance download is not attached."
+    },
+    "guardrail_checks": {
+      "quotes_total": 4,
+      "quotes_verified": 4,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion CONTRADICTED: CPAP use of 4 or more hours per night on at least 70% of nights during a consecutive 30-day period within the first 90 days",
+        "Missing document: Device compliance download covering a consecutive 30-day period"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

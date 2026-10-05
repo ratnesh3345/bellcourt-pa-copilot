@@ -1,0 +1,210 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:01",
+  "case_id": "PA-2609-8126",
+  "inputs": {
+    "client_id": "RB-ACA",
+    "product": "ACA",
+    "service_code": "BHA-DME-2103",
+    "date_of_service": "2026-10-16",
+    "urgency": "STANDARD",
+    "member_state": "GA",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Dx: type 2 diabetes mellitus (E11.65), A1c 8.9%. Current regimen: insulin glargine 28 units nightly plus metformin. Requesting CGM system and sensors.",
+    "age_sent_to_ai": 34,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-103 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-103 v1",
+        "reason": "Effective 2024-01-01 to 2025-12-31; date of service 2026-10-16 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "3430050d4ba21f55",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-103 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-103 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-103 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Diagnosis of diabetes mellitus (type 1 or type 2)\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"3\"},\n      \"quote\": \"Diagnosis of diabetes mellitus (type 1 or type 2)\",\n      \"evidence\": \"Dx: type 2 diabetes mellitus (E11.65)\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents type 2 diabetes mellitus with ICD-10 code E11.65.\"\n    },\n    {\n      \"criterion\": \"Treatment with insulin of any type or frequency, including basal-only insulin\",\n      \"logic\": \"one of 2 options (OR)\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"3\"},\n      \"quote\": \"treatment with insulin of any type or frequency, including basal-only insulin\",\n      \"evidence\": \"Current regimen: insulin glargine 28 units nightly plus metformin\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents insulin glargine (basal insulin) 28 units nightly.\"\n    },\n    {\n      \"criterion\": \"Documented history of problematic hypoglycemia (recurrent level 2 events, or at least one level 3 event)\",\n      \"logic\": \"one of 2 options (OR)\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"3\"},\n      \"quote\": \"a documented history of problematic hypoglycemia (recurrent level 2 events, or at least one level 3 event)\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"No hypoglycemia history documented; however, insulin treatment criterion is already satisfied.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Bellcourt medical policies apply without modification for Marketplace product\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.2\"},\n      \"quote\": \"Bellcourt medical policies apply without modification.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Confirms MP-103 v2 criteria govern this ACA product request.\"\n    },\n    {\n      \"provision\": \"Only a licensed physician may issue a denial based on medical necessity; nurses may approve but may not deny\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"4\"},\n      \"quote\": \"Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Procedural requirement for any potential denial.\"\n    },\n    {\n      \"provision\": \"Diabetes managed with non-insulin therapy and no history of problematic hypoglycemia is not medically necessary\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"4\"},\n      \"quote\": \"Diabetes managed with non-insulin therapy and no history of problematic hypoglycemia.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"This limitation does not apply because patient is on insulin therapy.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Current medication list showing insulin regimen\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"5\"},\n      \"quote\": \"current medication list showing insulin regimen\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Patient meets both required criteria: type 2 diabetes diagnosis and insulin treatment (glargine 28 units nightly)\",\n    \"Provider notes state insulin regimen but formal medication list may be needed per documentation requirements\",\n    \"A1c of 8.9% indicates suboptimal glycemic control on current therapy\"\n  ],\n  \"summary_for_nurse\": \"The patient has type 2 diabetes and uses basal insulin (glargine 28 units nightly), satisfying the policy criteria for CGM. The provider notes describe the insulin regimen, though a formal medication list may be requested per documentation requirements. The A1c is 8.9%.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Diagnosis of diabetes mellitus (type 1 or type 2)",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "3"
+          },
+          "quote": "Diagnosis of diabetes mellitus (type 1 or type 2)",
+          "evidence": "Dx: type 2 diabetes mellitus (E11.65)",
+          "status": "SUPPORTED",
+          "note": "Provider documents type 2 diabetes mellitus with ICD-10 code E11.65.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Treatment with insulin of any type or frequency, including basal-only insulin",
+          "logic": "one of 2 options (OR)",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "3"
+          },
+          "quote": "treatment with insulin of any type or frequency, including basal-only insulin",
+          "evidence": "Current regimen: insulin glargine 28 units nightly plus metformin",
+          "status": "SUPPORTED",
+          "note": "Provider documents insulin glargine (basal insulin) 28 units nightly.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Documented history of problematic hypoglycemia (recurrent level 2 events, or at least one level 3 event)",
+          "logic": "one of 2 options (OR)",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "3"
+          },
+          "quote": "a documented history of problematic hypoglycemia (recurrent level 2 events, or at least one level 3 event)",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "No hypoglycemia history documented; however, insulin treatment criterion is already satisfied.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Bellcourt medical policies apply without modification for Marketplace product",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.2"
+          },
+          "quote": "Bellcourt medical policies apply without modification.",
+          "status": "INFO_ONLY",
+          "note": "Confirms MP-103 v2 criteria govern this ACA product request.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Only a licensed physician may issue a denial based on medical necessity; nurses may approve but may not deny",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "4"
+          },
+          "quote": "Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.",
+          "status": "INFO_ONLY",
+          "note": "Procedural requirement for any potential denial.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Diabetes managed with non-insulin therapy and no history of problematic hypoglycemia is not medically necessary",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "4"
+          },
+          "quote": "Diabetes managed with non-insulin therapy and no history of problematic hypoglycemia.",
+          "status": "SATISFIED",
+          "note": "This limitation does not apply because patient is on insulin therapy.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Current medication list showing insulin regimen",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "5"
+          },
+          "quote": "current medication list showing insulin regimen",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Patient meets both required criteria: type 2 diabetes diagnosis and insulin treatment (glargine 28 units nightly)",
+        "Provider notes state insulin regimen but formal medication list may be needed per documentation requirements",
+        "A1c of 8.9% indicates suboptimal glycemic control on current therapy"
+      ],
+      "summary_for_nurse": "The patient has type 2 diabetes and uses basal insulin (glargine 28 units nightly), satisfying the policy criteria for CGM. The provider notes describe the insulin regimen, though a formal medication list may be requested per documentation requirements. The A1c is 8.9%."
+    },
+    "guardrail_checks": {
+      "quotes_total": 7,
+      "quotes_verified": 7,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [],
+      "missing_documents": [
+        "Missing document: Current medication list showing insulin regimen"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

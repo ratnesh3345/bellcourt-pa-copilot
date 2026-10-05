@@ -1,0 +1,207 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:47:22",
+  "case_id": "PA-2609-8122",
+  "inputs": {
+    "client_id": "OSTR",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-SURG-2988",
+    "date_of_service": "2026-10-09",
+    "urgency": "STANDARD",
+    "member_state": "TN",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Right knee pain. No mechanical symptoms. MRI: no discrete meniscal tear. X-ray: Kellgren-Lawrence grade 4. 6 weeks PT, NSAIDs, one steroid injection. Requesting right knee arthroscopy with partial meniscectomy.",
+    "age_sent_to_ai": 74,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-OSTR",
+        "sections": [
+          "5.1"
+        ]
+      },
+      {
+        "doc": "MP-105 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "e455b675991d43be",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-OSTR",
+        "section": "5.1"
+      },
+      {
+        "doc": "MP-105 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-105 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-105 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Mechanical symptoms (locking, catching, or giving way)\",\n      \"logic\": \"required (AND) - criterion 1 of 4\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"3\"},\n      \"quote\": \"Mechanical symptoms (locking, catching, or giving way)\",\n      \"evidence\": \"No mechanical symptoms.\",\n      \"status\": \"CONTRADICTED\",\n      \"note\": \"Provider notes explicitly state no mechanical symptoms are present\"\n    },\n    {\n      \"criterion\": \"A meniscal tear or loose body confirmed on MRI\",\n      \"logic\": \"required (AND) - criterion 2 of 4\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"3\"},\n      \"quote\": \"A meniscal tear or loose body confirmed on MRI\",\n      \"evidence\": \"MRI: no discrete meniscal tear.\",\n      \"status\": \"CONTRADICTED\",\n      \"note\": \"MRI shows no discrete meniscal tear and no loose body is mentioned\"\n    },\n    {\n      \"criterion\": \"Failure of at least 6 weeks of conservative therapy\",\n      \"logic\": \"required (AND) - criterion 3 of 4\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"3\"},\n      \"quote\": \"Failure of at least 6 weeks of conservative therapy\",\n      \"evidence\": \"6 weeks PT, NSAIDs, one steroid injection.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents 6 weeks of physical therapy, NSAIDs, and steroid injection\"\n    },\n    {\n      \"criterion\": \"Absence of advanced osteoarthritis (Kellgren-Lawrence grade 3 or 4)\",\n      \"logic\": \"required (AND) - criterion 4 of 4\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"3\"},\n      \"quote\": \"Absence of advanced osteoarthritis (Kellgren-Lawrence grade 3 or 4)\",\n      \"evidence\": \"X-ray: Kellgren-Lawrence grade 4.\",\n      \"status\": \"CONTRADICTED\",\n      \"note\": \"Patient has Kellgren-Lawrence grade 4 osteoarthritis, which is advanced osteoarthritis\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Any arthroscopy in a knee with Kellgren-Lawrence grade 3 or 4 osteoarthritis is not medically necessary\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"4\"},\n      \"quote\": \"Any arthroscopy in a knee with Kellgren-Lawrence grade 3 or 4 osteoarthritis.\",\n      \"status\": \"NOT_SATISFIED\",\n      \"note\": \"Patient has Kellgren-Lawrence grade 4 osteoarthritis per X-ray\"\n    },\n    {\n      \"provision\": \"Arthroscopic debridement or lavage for osteoarthritis is not medically necessary\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"4\"},\n      \"quote\": \"Arthroscopic debridement or lavage for osteoarthritis.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Requested procedure is partial meniscectomy, not debridement or lavage, but patient has grade 4 osteoarthritis\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Knee exam\",\n      \"source\": {\"doc\": \"MP-105 v1\", \"section\": \"5\"},\n      \"quote\": \"Knee exam, MRI report, weight-bearing radiographs with Kellgren-Lawrence grade, conservative therapy record.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Patient has Kellgren-Lawrence grade 4 osteoarthritis on X-ray\",\n    \"MRI shows no discrete meniscal tear\",\n    \"Provider notes state no mechanical symptoms present\",\n    \"Conservative therapy (6 weeks PT, NSAIDs, steroid injection) was completed\",\n    \"Policy excludes any arthroscopy in knees with grade 3 or 4 osteoarthritis\",\n    \"Knee exam documentation is missing\"\n  ],\n  \"summary_for_nurse\": \"The request is for arthroscopic partial meniscectomy in a 74-year-old patient with Kellgren-Lawrence grade 4 osteoarthritis, no mechanical symptoms, and no meniscal tear on MRI. The patient completed 6 weeks of conservative therapy. The medical policy requires mechanical symptoms, confirmed meniscal tear on MRI, and absence of grade 3 or 4 osteoarthritis.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Mechanical symptoms (locking, catching, or giving way)",
+          "logic": "required (AND) - criterion 1 of 4",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "3"
+          },
+          "quote": "Mechanical symptoms (locking, catching, or giving way)",
+          "evidence": "No mechanical symptoms.",
+          "status": "CONTRADICTED",
+          "note": "Provider notes explicitly state no mechanical symptoms are present",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "A meniscal tear or loose body confirmed on MRI",
+          "logic": "required (AND) - criterion 2 of 4",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "3"
+          },
+          "quote": "A meniscal tear or loose body confirmed on MRI",
+          "evidence": "MRI: no discrete meniscal tear.",
+          "status": "CONTRADICTED",
+          "note": "MRI shows no discrete meniscal tear and no loose body is mentioned",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Failure of at least 6 weeks of conservative therapy",
+          "logic": "required (AND) - criterion 3 of 4",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "3"
+          },
+          "quote": "Failure of at least 6 weeks of conservative therapy",
+          "evidence": "6 weeks PT, NSAIDs, one steroid injection.",
+          "status": "SUPPORTED",
+          "note": "Provider documents 6 weeks of physical therapy, NSAIDs, and steroid injection",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Absence of advanced osteoarthritis (Kellgren-Lawrence grade 3 or 4)",
+          "logic": "required (AND) - criterion 4 of 4",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "3"
+          },
+          "quote": "Absence of advanced osteoarthritis (Kellgren-Lawrence grade 3 or 4)",
+          "evidence": "X-ray: Kellgren-Lawrence grade 4.",
+          "status": "CONTRADICTED",
+          "note": "Patient has Kellgren-Lawrence grade 4 osteoarthritis, which is advanced osteoarthritis",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Any arthroscopy in a knee with Kellgren-Lawrence grade 3 or 4 osteoarthritis is not medically necessary",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "4"
+          },
+          "quote": "Any arthroscopy in a knee with Kellgren-Lawrence grade 3 or 4 osteoarthritis.",
+          "status": "NOT_SATISFIED",
+          "note": "Patient has Kellgren-Lawrence grade 4 osteoarthritis per X-ray",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Arthroscopic debridement or lavage for osteoarthritis is not medically necessary",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "4"
+          },
+          "quote": "Arthroscopic debridement or lavage for osteoarthritis.",
+          "status": "INFO_ONLY",
+          "note": "Requested procedure is partial meniscectomy, not debridement or lavage, but patient has grade 4 osteoarthritis",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Knee exam",
+          "source": {
+            "doc": "MP-105 v1",
+            "section": "5"
+          },
+          "quote": "Knee exam, MRI report, weight-bearing radiographs with Kellgren-Lawrence grade, conservative therapy record.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Patient has Kellgren-Lawrence grade 4 osteoarthritis on X-ray",
+        "MRI shows no discrete meniscal tear",
+        "Provider notes state no mechanical symptoms present",
+        "Conservative therapy (6 weeks PT, NSAIDs, steroid injection) was completed",
+        "Policy excludes any arthroscopy in knees with grade 3 or 4 osteoarthritis",
+        "Knee exam documentation is missing"
+      ],
+      "summary_for_nurse": "The request is for arthroscopic partial meniscectomy in a 74-year-old patient with Kellgren-Lawrence grade 4 osteoarthritis, no mechanical symptoms, and no meniscal tear on MRI. The patient completed 6 weeks of conservative therapy. The medical policy requires mechanical symptoms, confirmed meniscal tear on MRI, and absence of grade 3 or 4 osteoarthritis."
+    },
+    "guardrail_checks": {
+      "quotes_total": 7,
+      "quotes_verified": 7,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion CONTRADICTED: Mechanical symptoms (locking, catching, or giving way)",
+        "Criterion CONTRADICTED: A meniscal tear or loose body confirmed on MRI",
+        "Criterion CONTRADICTED: Absence of advanced osteoarthritis (Kellgren-Lawrence grade 3 or 4)",
+        "Plan provision NOT_SATISFIED: Any arthroscopy in a knee with Kellgren-Lawrence grade 3 or 4 osteoarthritis is not medically necessary",
+        "Missing document: Knee exam"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

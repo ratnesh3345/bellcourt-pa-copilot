@@ -1,0 +1,203 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:00",
+  "case_id": "PA-2609-8101",
+  "inputs": {
+    "client_id": "RB-MA",
+    "product": "MA",
+    "service_code": "BHA-DME-2103",
+    "date_of_service": "2026-10-17",
+    "urgency": "STANDARD",
+    "member_state": "AZ",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Dx: type 2 diabetes mellitus (E11.65), A1c 8.9%. Current regimen: insulin glargine 28 units nightly plus metformin. Requesting CGM system and sensors.",
+    "age_sent_to_ai": 35,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.1",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-103 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-103 v1",
+        "reason": "Effective 2024-01-01 to 2025-12-31; date of service 2026-10-17 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "MEDICARE_CRITERIA",
+      "PACE_SCREEN_OUTDATED",
+      "AZ_MD_SIGNOFF"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "9c643a47a2afe973",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.1"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-103 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-103 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-103 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Diagnosis of diabetes mellitus\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"Diabetes mellitus AND either (a) insulin treatment of any type or frequency, or (b) documented problematic hypoglycemia.\",\n      \"evidence\": \"Dx: type 2 diabetes mellitus (E11.65)\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents type 2 diabetes mellitus with ICD-10 code E11.65.\"\n    },\n    {\n      \"criterion\": \"Either insulin treatment of any type or frequency, OR documented problematic hypoglycemia\",\n      \"logic\": \"one of 2 options (OR), combined with criterion 1 using AND\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"either (a) insulin treatment of any type or frequency, or (b) documented problematic hypoglycemia.\",\n      \"evidence\": \"Current regimen: insulin glargine 28 units nightly plus metformin.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents insulin glargine treatment, satisfying option (a).\"\n    },\n    {\n      \"criterion\": \"Diagnosis of diabetes mellitus (type 1 or type 2)\",\n      \"logic\": \"required (AND) per MP-103\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"3\"},\n      \"quote\": \"Diagnosis of diabetes mellitus (type 1 or type 2); AND\",\n      \"evidence\": \"Dx: type 2 diabetes mellitus (E11.65)\",\n      \"status\": \"NOT_APPLICABLE\",\n      \"note\": \"Riverbend Addendum 2.1 sets Medicare criteria for MA members, which take precedence over MP-103 criteria per Level 2 authority.\"\n    },\n    {\n      \"criterion\": \"Either treatment with insulin of any type or frequency, or documented history of problematic hypoglycemia\",\n      \"logic\": \"one of 2 options (OR), combined with MP-103 criterion 1 using AND\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"3\"},\n      \"quote\": \"Either (a) treatment with insulin of any type or frequency, including basal-only insulin; or (b) a documented history of problematic hypoglycemia\",\n      \"evidence\": \"Current regimen: insulin glargine 28 units nightly plus metformin.\",\n      \"status\": \"NOT_APPLICABLE\",\n      \"note\": \"Riverbend Addendum 2.1 sets Medicare criteria for MA members, which take precedence over MP-103 criteria per Level 2 authority.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medicare Advantage members: Medicare coverage rules take precedence over Bellcourt criteria\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied and Bellcourt criteria may not be more restrictive.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Client is RB-MA with product MA; Medicare criteria from Addendum 2.1 apply instead of MP-103.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Current medication list showing insulin regimen\",\n      \"source\": {\"doc\": \"MP-103 v2\", \"section\": \"5\"},\n      \"quote\": \"Diagnosis, current medication list showing insulin regimen, hypoglycemia history if relevant.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Member is Medicare Advantage (RB-MA product MA), so Medicare criteria from Riverbend Addendum 2.1 apply\",\n    \"Provider notes state insulin glargine 28 units nightly, but formal medication list not attached\",\n    \"A1c 8.9% is documented but not required by the governing criteria\"\n  ],\n  \"summary_for_nurse\": \"This is a Medicare Advantage member, so Medicare criteria from the Riverbend Addendum apply rather than standard Bellcourt policy MP-103. The provider notes document type 2 diabetes and insulin glargine treatment, meeting both required Medicare criteria. A formal medication list showing the insulin regimen is listed in documentation requirements but not present in the notes.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Diagnosis of diabetes mellitus",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "Diabetes mellitus AND either (a) insulin treatment of any type or frequency, or (b) documented problematic hypoglycemia.",
+          "evidence": "Dx: type 2 diabetes mellitus (E11.65)",
+          "status": "SUPPORTED",
+          "note": "Provider documents type 2 diabetes mellitus with ICD-10 code E11.65.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Either insulin treatment of any type or frequency, OR documented problematic hypoglycemia",
+          "logic": "one of 2 options (OR), combined with criterion 1 using AND",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "either (a) insulin treatment of any type or frequency, or (b) documented problematic hypoglycemia.",
+          "evidence": "Current regimen: insulin glargine 28 units nightly plus metformin.",
+          "status": "SUPPORTED",
+          "note": "Provider documents insulin glargine treatment, satisfying option (a).",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Diagnosis of diabetes mellitus (type 1 or type 2)",
+          "logic": "required (AND) per MP-103",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "3"
+          },
+          "quote": "Diagnosis of diabetes mellitus (type 1 or type 2); AND",
+          "evidence": "Dx: type 2 diabetes mellitus (E11.65)",
+          "status": "NOT_APPLICABLE",
+          "note": "Riverbend Addendum 2.1 sets Medicare criteria for MA members, which take precedence over MP-103 criteria per Level 2 authority.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Either treatment with insulin of any type or frequency, or documented history of problematic hypoglycemia",
+          "logic": "one of 2 options (OR), combined with MP-103 criterion 1 using AND",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "3"
+          },
+          "quote": "Either (a) treatment with insulin of any type or frequency, including basal-only insulin; or (b) a documented history of problematic hypoglycemia",
+          "evidence": "Current regimen: insulin glargine 28 units nightly plus metformin.",
+          "status": "NOT_APPLICABLE",
+          "note": "Riverbend Addendum 2.1 sets Medicare criteria for MA members, which take precedence over MP-103 criteria per Level 2 authority.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medicare Advantage members: Medicare coverage rules take precedence over Bellcourt criteria",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied and Bellcourt criteria may not be more restrictive.",
+          "status": "INFO_ONLY",
+          "note": "Client is RB-MA with product MA; Medicare criteria from Addendum 2.1 apply instead of MP-103.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Current medication list showing insulin regimen",
+          "source": {
+            "doc": "MP-103 v2",
+            "section": "5"
+          },
+          "quote": "Diagnosis, current medication list showing insulin regimen, hypoglycemia history if relevant.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Member is Medicare Advantage (RB-MA product MA), so Medicare criteria from Riverbend Addendum 2.1 apply",
+        "Provider notes state insulin glargine 28 units nightly, but formal medication list not attached",
+        "A1c 8.9% is documented but not required by the governing criteria"
+      ],
+      "summary_for_nurse": "This is a Medicare Advantage member, so Medicare criteria from the Riverbend Addendum apply rather than standard Bellcourt policy MP-103. The provider notes document type 2 diabetes and insulin glargine treatment, meeting both required Medicare criteria. A formal medication list showing the insulin regimen is listed in documentation requirements but not present in the notes."
+    },
+    "guardrail_checks": {
+      "quotes_total": 6,
+      "quotes_verified": 6,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [],
+      "missing_documents": [
+        "Missing document: Current medication list showing insulin regimen"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

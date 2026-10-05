@@ -1,0 +1,207 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:42:08",
+  "case_id": "PA-2609-8100",
+  "inputs": {
+    "client_id": "RB-MA",
+    "product": "MA",
+    "service_code": "BHA-IMG-0721",
+    "date_of_service": "2026-10-02",
+    "urgency": "STANDARD",
+    "member_state": "AZ",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Patient presents with low back pain radiating down the left leg in.an L5 distribution with positive straight-leg raise. Has completed 5 weeks of PT and scheduled naproxen without adequate relief. Requesting MRI lumbar spine without contrast,",
+    "age_sent_to_ai": 70,
+    "identity_removed": {}
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-101 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-101 v1",
+        "reason": "Effective 2024-01-01 to 2025-12-31; date of service 2026-10-02 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED",
+      "AZ_MD_SIGNOFF"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "b6f60b526fc46fe7",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes do not document any red-flag conditions.\"\n    },\n    {\n      \"criterion\": \"Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy\",\n      \"evidence\": \"low back pain radiating down the left leg in.an L5 distribution with positive straight-leg raise. Has completed 5 weeks of PT and scheduled naproxen without adequate relief.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Patient has radicular pain in L5 distribution with 5 weeks of PT and naproxen, exceeding the 4-week requirement.\"\n    },\n    {\n      \"criterion\": \"Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes do not mention scheduled or recommended spine surgery.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medicare Advantage members: Medicare coverage rules take precedence over Bellcourt criteria where NCD or LCD exists\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Patient is MA member (RB-MA product), but no Medicare criteria for MRI lumbar spine are specified in the addendum list.\"\n    },\n    {\n      \"provision\": \"Only a licensed physician may issue a denial based on medical necessity\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"4\"},\n      \"quote\": \"Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Procedural requirement for any potential denial decision.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Office notes documenting symptom duration\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"5\"},\n      \"quote\": \"Office notes documenting symptom duration, neurological exam, conservative therapy type and duration\"\n    },\n    {\n      \"item\": \"Office notes documenting neurological exam\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"5\"},\n      \"quote\": \"Office notes documenting symptom duration, neurological exam, conservative therapy type and duration\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Patient has radicular pain in L5 distribution with positive straight-leg raise\",\n    \"Conservative therapy documented: 5 weeks of PT and scheduled naproxen without adequate relief\",\n    \"Symptom duration not explicitly stated in provider notes\",\n    \"Neurological exam findings limited to positive straight-leg raise; full neurological exam not documented\"\n  ],\n  \"summary_for_nurse\": \"The request meets criterion 2 of MP-101 v2 with radicular pain in L5 distribution and 5 weeks of conservative therapy (PT and naproxen). Documentation of symptom duration and complete neurological exam findings are not present in the provider notes. The patient is a Medicare Advantage member, but no specific Medicare criteria for MRI lumbar spine are listed in the Riverbend Addendum.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes do not document any red-flag conditions.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+          "evidence": "low back pain radiating down the left leg in.an L5 distribution with positive straight-leg raise. Has completed 5 weeks of PT and scheduled naproxen without adequate relief.",
+          "status": "SUPPORTED",
+          "note": "Patient has radicular pain in L5 distribution with 5 weeks of PT and naproxen, exceeding the 4-week requirement.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes do not mention scheduled or recommended spine surgery.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medicare Advantage members: Medicare coverage rules take precedence over Bellcourt criteria where NCD or LCD exists",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied",
+          "status": "INFO_ONLY",
+          "note": "Patient is MA member (RB-MA product), but no Medicare criteria for MRI lumbar spine are specified in the addendum list.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Only a licensed physician may issue a denial based on medical necessity",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "4"
+          },
+          "quote": "Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.",
+          "status": "INFO_ONLY",
+          "note": "Procedural requirement for any potential denial decision.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Office notes documenting symptom duration",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "5"
+          },
+          "quote": "Office notes documenting symptom duration, neurological exam, conservative therapy type and duration",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Office notes documenting neurological exam",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "5"
+          },
+          "quote": "Office notes documenting symptom duration, neurological exam, conservative therapy type and duration",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Patient has radicular pain in L5 distribution with positive straight-leg raise",
+        "Conservative therapy documented: 5 weeks of PT and scheduled naproxen without adequate relief",
+        "Symptom duration not explicitly stated in provider notes",
+        "Neurological exam findings limited to positive straight-leg raise; full neurological exam not documented"
+      ],
+      "summary_for_nurse": "The request meets criterion 2 of MP-101 v2 with radicular pain in L5 distribution and 5 weeks of conservative therapy (PT and naproxen). Documentation of symptom duration and complete neurological exam findings are not present in the provider notes. The patient is a Medicare Advantage member, but no specific Medicare criteria for MRI lumbar spine are listed in the Riverbend Addendum."
+    },
+    "guardrail_checks": {
+      "quotes_total": 7,
+      "quotes_verified": 7,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion NOT_FOUND: Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+        "Criterion NOT_FOUND: Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+        "Missing document: Office notes documenting symptom duration",
+        "Missing document: Office notes documenting neurological exam"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

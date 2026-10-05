@@ -1,0 +1,213 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:47:10",
+  "case_id": "PA-2609-8121",
+  "inputs": {
+    "client_id": "JUNIPER",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-VASC-3647",
+    "date_of_service": "2026-10-03",
+    "urgency": "STANDARD",
+    "member_state": "AZ",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Aching and heaviness in right leg, ankle edema by evening. Duplex: GSV reflux 700 ms. Compression stockings 20-30 mmHg x 4 months. Requesting endovenous radiofrequency ablation R GSV.",
+    "age_sent_to_ai": 45,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-JUNIPER",
+        "sections": [
+          "5.1"
+        ]
+      },
+      {
+        "doc": "MP-111 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "0e871e275d0912a2",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-JUNIPER",
+        "section": "5.1"
+      },
+      {
+        "doc": "MP-111 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-111 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-111 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Symptomatic varicose veins (pain, swelling, heaviness, skin changes)\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"3\"},\n      \"quote\": \"Symptomatic varicose veins (pain, swelling, heaviness, skin changes)\",\n      \"evidence\": \"Aching and heaviness in right leg, ankle edema by evening.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes document aching, heaviness, and ankle edema matching required symptoms.\"\n    },\n    {\n      \"criterion\": \"Duplex ultrasound showing reflux of at least 500 milliseconds in the treated vein\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"3\"},\n      \"quote\": \"Duplex ultrasound showing reflux of at least 500 milliseconds in the treated vein\",\n      \"evidence\": \"Duplex: GSV reflux 700 ms.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Documented reflux of 700 ms exceeds the 500 ms threshold.\"\n    },\n    {\n      \"criterion\": \"Failure of at least 3 months of compression therapy\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"3\"},\n      \"quote\": \"Failure of at least 3 months of compression therapy.\",\n      \"evidence\": \"Compression stockings 20-30 mmHg x 4 months.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Four months of compression therapy documented, exceeding the 3-month requirement.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Treatment of spider veins or for cosmetic purposes is not medically necessary\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"4\"},\n      \"quote\": \"Treatment of spider veins or for cosmetic purposes.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Request is for symptomatic varicose veins with documented symptoms, not cosmetic treatment.\"\n    },\n    {\n      \"provision\": \"Reflux under 500 ms is not medically necessary\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"4\"},\n      \"quote\": \"Reflux under 500 ms.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Documented reflux is 700 ms, which exceeds the 500 ms threshold.\"\n    },\n    {\n      \"provision\": \"Investigational services are excluded from coverage\",\n      \"source\": {\"doc\": \"MP-117 v1\", \"section\": \"4\"},\n      \"quote\": \"Investigational services are excluded from coverage under every plan Bellcourt administers.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Endovenous ablation is an established procedure; no investigational concern indicated.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Duplex ultrasound report with reflux times\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"5\"},\n      \"quote\": \"duplex ultrasound report with reflux times\"\n    },\n    {\n      \"item\": \"Compression therapy record\",\n      \"source\": {\"doc\": \"MP-111 v1\", \"section\": \"5\"},\n      \"quote\": \"compression therapy record\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"All three required criteria appear supported by provider notes\",\n    \"Reflux time of 700 ms exceeds 500 ms threshold by 200 ms\",\n    \"Compression therapy duration of 4 months exceeds 3-month requirement\",\n    \"Formal duplex ultrasound report and compression therapy records not yet received\",\n    \"Request must be pended for documentation per section 5 before any other action\"\n  ],\n  \"summary_for_nurse\": \"The provider notes describe symptoms, duplex findings, and compression therapy that align with all three required criteria in MP-111 v1 section 3. However, the formal duplex ultrasound report and compression therapy record are not present. Per MP-111 v1 section 5, the request must be pended to obtain these documents from the provider.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Symptomatic varicose veins (pain, swelling, heaviness, skin changes)",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "3"
+          },
+          "quote": "Symptomatic varicose veins (pain, swelling, heaviness, skin changes)",
+          "evidence": "Aching and heaviness in right leg, ankle edema by evening.",
+          "status": "SUPPORTED",
+          "note": "Provider notes document aching, heaviness, and ankle edema matching required symptoms.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Duplex ultrasound showing reflux of at least 500 milliseconds in the treated vein",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "3"
+          },
+          "quote": "Duplex ultrasound showing reflux of at least 500 milliseconds in the treated vein",
+          "evidence": "Duplex: GSV reflux 700 ms.",
+          "status": "SUPPORTED",
+          "note": "Documented reflux of 700 ms exceeds the 500 ms threshold.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Failure of at least 3 months of compression therapy",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "3"
+          },
+          "quote": "Failure of at least 3 months of compression therapy.",
+          "evidence": "Compression stockings 20-30 mmHg x 4 months.",
+          "status": "SUPPORTED",
+          "note": "Four months of compression therapy documented, exceeding the 3-month requirement.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Treatment of spider veins or for cosmetic purposes is not medically necessary",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "4"
+          },
+          "quote": "Treatment of spider veins or for cosmetic purposes.",
+          "status": "SATISFIED",
+          "note": "Request is for symptomatic varicose veins with documented symptoms, not cosmetic treatment.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Reflux under 500 ms is not medically necessary",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "4"
+          },
+          "quote": "Reflux under 500 ms.",
+          "status": "SATISFIED",
+          "note": "Documented reflux is 700 ms, which exceeds the 500 ms threshold.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Investigational services are excluded from coverage",
+          "source": {
+            "doc": "MP-117 v1",
+            "section": "4"
+          },
+          "quote": "Investigational services are excluded from coverage under every plan Bellcourt administers.",
+          "status": "INFO_ONLY",
+          "note": "Endovenous ablation is an established procedure; no investigational concern indicated.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Duplex ultrasound report with reflux times",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "5"
+          },
+          "quote": "duplex ultrasound report with reflux times",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Compression therapy record",
+          "source": {
+            "doc": "MP-111 v1",
+            "section": "5"
+          },
+          "quote": "compression therapy record",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "All three required criteria appear supported by provider notes",
+        "Reflux time of 700 ms exceeds 500 ms threshold by 200 ms",
+        "Compression therapy duration of 4 months exceeds 3-month requirement",
+        "Formal duplex ultrasound report and compression therapy records not yet received",
+        "[removed by guardrail: contained decision language]"
+      ],
+      "summary_for_nurse": "[removed by guardrail: contained decision language]"
+    },
+    "guardrail_checks": {
+      "quotes_total": 8,
+      "quotes_verified": 8,
+      "all_quotes_verified": true,
+      "issues": [
+        "Decision language removed: \"The provider notes describe symptoms, duplex findings, and compression...\"",
+        "Decision language removed: \"Request must be pended for documentation per section 5 before any othe...\""
+      ],
+      "passed": false,
+      "needs_attention": [
+        "Missing document: Duplex ultrasound report with reflux times",
+        "Missing document: Compression therapy record"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

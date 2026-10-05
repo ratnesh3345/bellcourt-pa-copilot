@@ -1,0 +1,178 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:00",
+  "case_id": "PA-2609-8110",
+  "inputs": {
+    "client_id": "RB-ACA",
+    "product": "ACA",
+    "service_code": "BHA-SURG-3052",
+    "date_of_service": "2026-09-30",
+    "urgency": "STANDARD",
+    "member_state": "GA",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Chronic nasal obstruction, worse on right. Exam: leftward septal deviation obstructing right airway. Fluticasone and cetirizine x 6 weeks without improvement. Requesting septoplasty.",
+    "age_sent_to_ai": 41,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-109 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "b619f6ac7549f1a8",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-109 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-109 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-109 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Symptomatic nasal airway obstruction\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-109 v1\", \"section\": \"3\"},\n      \"quote\": \"Symptomatic nasal airway obstruction\",\n      \"evidence\": \"Chronic nasal obstruction, worse on right.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents chronic nasal obstruction symptoms.\"\n    },\n    {\n      \"criterion\": \"Septal deviation documented on examination\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-109 v1\", \"section\": \"3\"},\n      \"quote\": \"Septal deviation documented on examination\",\n      \"evidence\": \"Exam: leftward septal deviation obstructing right airway.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents leftward septal deviation on physical exam.\"\n    },\n    {\n      \"criterion\": \"Failure of at least 4 weeks of medical management (intranasal steroids and/or antihistamines)\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-109 v1\", \"section\": \"3\"},\n      \"quote\": \"Failure of at least 4 weeks of medical management (intranasal steroids and/or antihistamines)\",\n      \"evidence\": \"Fluticasone and cetirizine x 6 weeks without improvement.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents 6 weeks of intranasal steroid and antihistamine trial without improvement, exceeding the 4-week requirement.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Rhinoplasty performed for cosmetic purposes is not medically necessary\",\n      \"source\": {\"doc\": \"MP-109 v1\", \"section\": \"4\"},\n      \"quote\": \"Rhinoplasty performed for cosmetic purposes.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Request is for septoplasty for functional obstruction, not cosmetic rhinoplasty.\"\n    },\n    {\n      \"provision\": \"Bellcourt medical policies apply without modification for Marketplace product\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.2\"},\n      \"quote\": \"Bellcourt medical policies apply without modification.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Confirms MP-109 v1 criteria apply to this RB-ACA Marketplace member.\"\n    }\n  ],\n  \"missing_documents\": [],\n  \"points_for_reviewer\": [\n    \"All three required criteria are documented: symptomatic obstruction, septal deviation on exam, and 6 weeks of failed medical management\",\n    \"Documentation requirements (nasal exam and medication trial history) are present in provider notes\",\n    \"Request is for functional septoplasty, not cosmetic rhinoplasty\"\n  ],\n  \"summary_for_nurse\": \"The provider documents chronic nasal obstruction with leftward septal deviation on examination and 6 weeks of failed medical management with fluticasone and antihistamines. All three required criteria from MP-109 v1 section 3 are supported by the clinical notes. Required documentation elements are present.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Symptomatic nasal airway obstruction",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-109 v1",
+            "section": "3"
+          },
+          "quote": "Symptomatic nasal airway obstruction",
+          "evidence": "Chronic nasal obstruction, worse on right.",
+          "status": "SUPPORTED",
+          "note": "Provider documents chronic nasal obstruction symptoms.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Septal deviation documented on examination",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-109 v1",
+            "section": "3"
+          },
+          "quote": "Septal deviation documented on examination",
+          "evidence": "Exam: leftward septal deviation obstructing right airway.",
+          "status": "SUPPORTED",
+          "note": "Provider documents leftward septal deviation on physical exam.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Failure of at least 4 weeks of medical management (intranasal steroids and/or antihistamines)",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-109 v1",
+            "section": "3"
+          },
+          "quote": "Failure of at least 4 weeks of medical management (intranasal steroids and/or antihistamines)",
+          "evidence": "Fluticasone and cetirizine x 6 weeks without improvement.",
+          "status": "SUPPORTED",
+          "note": "Provider documents 6 weeks of intranasal steroid and antihistamine trial without improvement, exceeding the 4-week requirement.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Rhinoplasty performed for cosmetic purposes is not medically necessary",
+          "source": {
+            "doc": "MP-109 v1",
+            "section": "4"
+          },
+          "quote": "Rhinoplasty performed for cosmetic purposes.",
+          "status": "INFO_ONLY",
+          "note": "Request is for septoplasty for functional obstruction, not cosmetic rhinoplasty.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Bellcourt medical policies apply without modification for Marketplace product",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.2"
+          },
+          "quote": "Bellcourt medical policies apply without modification.",
+          "status": "INFO_ONLY",
+          "note": "Confirms MP-109 v1 criteria apply to this RB-ACA Marketplace member.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [],
+      "points_for_reviewer": [
+        "All three required criteria are documented: symptomatic obstruction, septal deviation on exam, and 6 weeks of failed medical management",
+        "Documentation requirements (nasal exam and medication trial history) are present in provider notes",
+        "Request is for functional septoplasty, not cosmetic rhinoplasty"
+      ],
+      "summary_for_nurse": "The provider documents chronic nasal obstruction with leftward septal deviation on examination and 6 weeks of failed medical management with fluticasone and antihistamines. All three required criteria from MP-109 v1 section 3 are supported by the clinical notes. Required documentation elements are present."
+    },
+    "guardrail_checks": {
+      "quotes_total": 5,
+      "quotes_verified": 5,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [],
+      "missing_documents": []
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

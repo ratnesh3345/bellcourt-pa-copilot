@@ -1,0 +1,219 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:44:21",
+  "case_id": "PA-2609-8108",
+  "inputs": {
+    "client_id": "RB-ACA",
+    "product": "ACA",
+    "service_code": "BHA-IMG-0721",
+    "date_of_service": "2026-09-27",
+    "urgency": "STANDARD",
+    "member_state": "GA",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Patient presents with low back pain, no radiation below the knee, neuro exam intact. Has completed 4 weeks of PT and scheduled naproxen without adequate relief. Requesting MRI lumbar spine without contrast.",
+    "age_sent_to_ai": 25,
+    "identity_removed": {}
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2.2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-101 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-101 v1",
+        "reason": "Effective 2024-01-01 to 2025-12-31; date of service 2026-09-27 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "78edef772de991ad",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2.2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-101 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes document intact neuro exam and no red-flag conditions mentioned.\"\n    },\n    {\n      \"criterion\": \"Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy\",\n      \"evidence\": \"low back pain, no radiation below the knee\",\n      \"status\": \"CONTRADICTED\",\n      \"note\": \"Provider explicitly states no radiation below the knee, which contradicts radicular pain or radiculopathy.\"\n    },\n    {\n      \"criterion\": \"Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"3\"},\n      \"quote\": \"Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"No mention of scheduled or recommended spine surgery in provider notes.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Uncomplicated low back pain without radiculopathy and without red flags is not medically necessary\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"4\"},\n      \"quote\": \"Uncomplicated low back pain without radiculopathy and without red flags.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Provider notes describe low back pain with no radiation below knee and intact neuro exam, matching this limitation.\"\n    },\n    {\n      \"provision\": \"Bellcourt medical policies apply without modification for RB-ACA Marketplace product\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.2\"},\n      \"quote\": \"Bellcourt medical policies apply without modification.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Confirms MP-101 v2 criteria apply as written with no client-specific modifications.\"\n    },\n    {\n      \"provision\": \"Only a licensed physician may issue a denial based on medical necessity\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"4\"},\n      \"quote\": \"Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"Procedural requirement for any potential denial decision.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Office notes documenting symptom duration\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"5\"},\n      \"quote\": \"Office notes documenting symptom duration, neurological exam, conservative therapy type and duration\"\n    },\n    {\n      \"item\": \"Documentation of conservative therapy type\",\n      \"source\": {\"doc\": \"MP-101 v2\", \"section\": \"5\"},\n      \"quote\": \"Office notes documenting symptom duration, neurological exam, conservative therapy type and duration\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Provider notes state no radiation below the knee, which does not meet the radiculopathy criterion\",\n    \"Conservative therapy duration (4 weeks PT and naproxen) is documented but symptom duration is not specified\",\n    \"Neurological exam documented as intact, no red-flag conditions noted\",\n    \"Request appears to match the limitation for uncomplicated low back pain without radiculopathy\"\n  ],\n  \"summary_for_nurse\": \"The request is for MRI lumbar spine for a 25-year-old with low back pain and no radiation below the knee. Provider documents 4 weeks of PT and naproxen, with intact neurological exam. The clinical presentation does not meet any of the three coverage criteria in MP-101 v2 section 3, and matches the limitation in section 4 for uncomplicated low back pain without radiculopathy.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes document intact neuro exam and no red-flag conditions mentioned.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+          "evidence": "low back pain, no radiation below the knee",
+          "status": "CONTRADICTED",
+          "note": "Provider explicitly states no radiation below the knee, which contradicts radicular pain or radiculopathy.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "3"
+          },
+          "quote": "Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "No mention of scheduled or recommended spine surgery in provider notes.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Uncomplicated low back pain without radiculopathy and without red flags is not medically necessary",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "4"
+          },
+          "quote": "Uncomplicated low back pain without radiculopathy and without red flags.",
+          "status": "SATISFIED",
+          "note": "Provider notes describe low back pain with no radiation below knee and intact neuro exam, matching this limitation.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Bellcourt medical policies apply without modification for RB-ACA Marketplace product",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.2"
+          },
+          "quote": "Bellcourt medical policies apply without modification.",
+          "status": "INFO_ONLY",
+          "note": "Confirms MP-101 v2 criteria apply as written with no client-specific modifications.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Only a licensed physician may issue a denial based on medical necessity",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "4"
+          },
+          "quote": "Only a licensed physician may issue a denial based on medical necessity. Nurses may approve but may not deny.",
+          "status": "INFO_ONLY",
+          "note": "Procedural requirement for any potential denial decision.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Office notes documenting symptom duration",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "5"
+          },
+          "quote": "Office notes documenting symptom duration, neurological exam, conservative therapy type and duration",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Documentation of conservative therapy type",
+          "source": {
+            "doc": "MP-101 v2",
+            "section": "5"
+          },
+          "quote": "Office notes documenting symptom duration, neurological exam, conservative therapy type and duration",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Provider notes state no radiation below the knee, which does not meet the radiculopathy criterion",
+        "Conservative therapy duration (4 weeks PT and naproxen) is documented but symptom duration is not specified",
+        "Neurological exam documented as intact, no red-flag conditions noted",
+        "Request appears to match the limitation for uncomplicated low back pain without radiculopathy"
+      ],
+      "summary_for_nurse": "The request is for MRI lumbar spine for a 25-year-old with low back pain and no radiation below the knee. Provider documents 4 weeks of PT and naproxen, with intact neurological exam. The clinical presentation does not meet any of the three coverage criteria in MP-101 v2 section 3, and matches the limitation in section 4 for uncomplicated low back pain without radiculopathy."
+    },
+    "guardrail_checks": {
+      "quotes_total": 8,
+      "quotes_verified": 8,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion NOT_FOUND: Presence of a red-flag condition (suspected cauda equina syndrome, suspected spinal infection, suspected malignancy, progressive neurological deficit, or significant trauma)",
+        "Criterion CONTRADICTED: Radicular pain or radiculopathy that has persisted despite at least 4 weeks of documented conservative therapy",
+        "Criterion NOT_FOUND: Pre-surgical planning when spine surgery has already been scheduled or recommended by a spine surgeon",
+        "Missing document: Office notes documenting symptom duration",
+        "Missing document: Documentation of conservative therapy type"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

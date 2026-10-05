@@ -1,0 +1,228 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:01",
+  "case_id": "PA-2609-8117",
+  "inputs": {
+    "client_id": "KESTREL",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-SURG-6350",
+    "date_of_service": "2026-10-08",
+    "urgency": "STANDARD",
+    "member_state": "OH",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Failed back surgery syndrome with neuropathic leg pain x 12 months: Completed PT and injections without relief. Tried gabapentin and duloxetine. Psych eval: cleared for SCS: Requesting SCS trial.",
+    "age_sent_to_ai": 71,
+    "identity_removed": {}
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-KESTREL",
+        "sections": [
+          "5.1"
+        ]
+      },
+      {
+        "doc": "MP-110 v2",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [
+      {
+        "key": "MP-110 v1",
+        "reason": "Effective 2024-01-01 to 2025-09-30; date of service 2026-10-08 is outside that range (GOV-01 2)."
+      }
+    ],
+    "flags": [
+      "PACE_SCREEN_OUTDATED"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "65d48675594a4980",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-KESTREL",
+        "section": "5.1"
+      },
+      {
+        "doc": "MP-110 v2",
+        "section": "3"
+      },
+      {
+        "doc": "MP-110 v2",
+        "section": "4"
+      },
+      {
+        "doc": "MP-110 v2",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Chronic neuropathic pain of at least 6 months' duration\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"3\"},\n      \"quote\": \"Chronic neuropathic pain of at least 6 months' duration\",\n      \"evidence\": \"neuropathic leg pain x 12 months\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes document 12 months of neuropathic leg pain, exceeding the 6-month requirement\"\n    },\n    {\n      \"criterion\": \"Failure of conservative treatment, including physical therapy\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"3\"},\n      \"quote\": \"Failure of conservative treatment, including physical therapy\",\n      \"evidence\": \"Completed PT and injections without relief\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes document completed physical therapy and injections without relief\"\n    },\n    {\n      \"criterion\": \"Documented failure of at least 2 classes of pain medication (e.g. anticonvulsants, SNRIs, tricyclics)\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"3\"},\n      \"quote\": \"Documented failure of at least 2 classes of pain medication (e.g. anticonvulsants, SNRIs, tricyclics)\",\n      \"evidence\": \"Tried gabapentin and duloxetine\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Gabapentin is an anticonvulsant and duloxetine is an SNRI, representing 2 different medication classes\"\n    },\n    {\n      \"criterion\": \"Psychological evaluation clearing the member for implantation\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"3\"},\n      \"quote\": \"Psychological evaluation clearing the member for implantation\",\n      \"evidence\": \"Psych eval: cleared for SCS\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes document psychological evaluation clearing patient for SCS\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Medical necessity determined using Bellcourt medical policy library, subject to any stricter or more specific Plan provision\",\n      \"source\": {\"doc\": \"SPD-KESTREL\", \"section\": \"5.1\"},\n      \"quote\": \"Medical necessity is determined using the Bellcourt medical policy library in effect on the date of service\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"No conflicting Plan provisions identified for this request\"\n    },\n    {\n      \"provision\": \"Investigational services are excluded from coverage under every plan\",\n      \"source\": {\"doc\": \"MP-117 v1\", \"section\": \"4\"},\n      \"quote\": \"Investigational services are excluded from coverage under every plan Bellcourt administers\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"No evidence that SCS trial is investigational for this indication\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Pain history\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"5\"},\n      \"quote\": \"Pain history, therapy and medication history, psychological evaluation report\"\n    },\n    {\n      \"item\": \"Therapy and medication history\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"5\"},\n      \"quote\": \"Pain history, therapy and medication history, psychological evaluation report\"\n    },\n    {\n      \"item\": \"Psychological evaluation report\",\n      \"source\": {\"doc\": \"MP-110 v2\", \"section\": \"5\"},\n      \"quote\": \"Pain history, therapy and medication history, psychological evaluation report\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"All four required criteria from MP-110 v2 section 3 appear supported by provider notes\",\n    \"Documentation requirements list pain history, therapy and medication history, and psychological evaluation report as needed\",\n    \"Per MP-110 v2 section 5, request must be pended for missing documentation rather than denied\",\n    \"Patient age is 71 on date of service\"\n  ],\n  \"summary_for_nurse\": \"The provider notes indicate 12 months of neuropathic leg pain with failed conservative treatment including physical therapy and injections, trial of 2 medication classes (gabapentin and duloxetine), and psychological clearance. The formal documentation listed in MP-110 v2 section 5 (pain history, therapy and medication history, psychological evaluation report) is not present in the notes provided.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Chronic neuropathic pain of at least 6 months' duration",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "3"
+          },
+          "quote": "Chronic neuropathic pain of at least 6 months' duration",
+          "evidence": "neuropathic leg pain x 12 months",
+          "status": "SUPPORTED",
+          "note": "Provider notes document 12 months of neuropathic leg pain, exceeding the 6-month requirement",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Failure of conservative treatment, including physical therapy",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "3"
+          },
+          "quote": "Failure of conservative treatment, including physical therapy",
+          "evidence": "Completed PT and injections without relief",
+          "status": "SUPPORTED",
+          "note": "Provider notes document completed physical therapy and injections without relief",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Documented failure of at least 2 classes of pain medication (e.g. anticonvulsants, SNRIs, tricyclics)",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "3"
+          },
+          "quote": "Documented failure of at least 2 classes of pain medication (e.g. anticonvulsants, SNRIs, tricyclics)",
+          "evidence": "Tried gabapentin and duloxetine",
+          "status": "SUPPORTED",
+          "note": "Gabapentin is an anticonvulsant and duloxetine is an SNRI, representing 2 different medication classes",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Psychological evaluation clearing the member for implantation",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "3"
+          },
+          "quote": "Psychological evaluation clearing the member for implantation",
+          "evidence": "Psych eval: cleared for SCS",
+          "status": "SUPPORTED",
+          "note": "Provider notes document psychological evaluation clearing patient for SCS",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Medical necessity determined using Bellcourt medical policy library, subject to any stricter or more specific Plan provision",
+          "source": {
+            "doc": "SPD-KESTREL",
+            "section": "5.1"
+          },
+          "quote": "Medical necessity is determined using the Bellcourt medical policy library in effect on the date of service",
+          "status": "INFO_ONLY",
+          "note": "No conflicting Plan provisions identified for this request",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Investigational services are excluded from coverage under every plan",
+          "source": {
+            "doc": "MP-117 v1",
+            "section": "4"
+          },
+          "quote": "Investigational services are excluded from coverage under every plan Bellcourt administers",
+          "status": "INFO_ONLY",
+          "note": "No evidence that SCS trial is investigational for this indication",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Pain history",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "5"
+          },
+          "quote": "Pain history, therapy and medication history, psychological evaluation report",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Therapy and medication history",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "5"
+          },
+          "quote": "Pain history, therapy and medication history, psychological evaluation report",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Psychological evaluation report",
+          "source": {
+            "doc": "MP-110 v2",
+            "section": "5"
+          },
+          "quote": "Pain history, therapy and medication history, psychological evaluation report",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "All four required criteria from MP-110 v2 section 3 appear supported by provider notes",
+        "Documentation requirements list pain history, therapy and medication history, and psychological evaluation report as needed",
+        "[sentence removed by guardrail: it told staff what to decide]",
+        "Patient age is 71 on date of service"
+      ],
+      "summary_for_nurse": "The provider notes indicate 12 months of neuropathic leg pain with failed conservative treatment including physical therapy and injections, trial of 2 medication classes (gabapentin and duloxetine), and psychological clearance. The formal documentation listed in MP-110 v2 section 5 (pain history, therapy and medication history, psychological evaluation report) is not present in the notes provided."
+    },
+    "guardrail_checks": {
+      "quotes_total": 9,
+      "quotes_verified": 9,
+      "all_quotes_verified": true,
+      "issues": [
+        "Decision language removed: \"Per MP-110 v2 section 5, request must be pended for missing documentation rather than deni\""
+      ],
+      "passed": false,
+      "needs_attention": [],
+      "missing_documents": [
+        "Missing document: Pain history",
+        "Missing document: Therapy and medication history",
+        "Missing document: Psychological evaluation report"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

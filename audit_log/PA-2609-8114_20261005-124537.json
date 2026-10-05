@@ -1,0 +1,200 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:45:37",
+  "case_id": "PA-2609-8114",
+  "inputs": {
+    "client_id": "BRIGHT",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-RAD-5205",
+    "date_of_service": "2026-10-01",
+    "urgency": "STANDARD",
+    "member_state": "CO",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Choroidal (uveal) melanoma right eye. Requesting proton beam therapy.",
+    "age_sent_to_ai": 47,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-BRIGHT",
+        "sections": [
+          "6.7"
+        ]
+      },
+      {
+        "doc": "MP-113 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "1a15cd905843da9c",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-BRIGHT",
+        "section": "6.7"
+      },
+      {
+        "doc": "MP-113 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-113 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-113 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Primary or metastatic tumor of the central nervous system in a member under 21\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-113 v1\", \"section\": \"3\"},\n      \"quote\": \"Primary or metastatic tumor of the central nervous system in a member under 21\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Patient has choroidal melanoma, not CNS tumor, and is age 47.\"\n    },\n    {\n      \"criterion\": \"Uveal (ocular) melanoma\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-113 v1\", \"section\": \"3\"},\n      \"quote\": \"Uveal (ocular) melanoma\",\n      \"evidence\": \"Choroidal (uveal) melanoma right eye\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider notes document choroidal uveal melanoma.\"\n    },\n    {\n      \"criterion\": \"Chordoma or chondrosarcoma of the skull base or spine\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-113 v1\", \"section\": \"3\"},\n      \"quote\": \"Chordoma or chondrosarcoma of the skull base or spine\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Patient has choroidal melanoma, not chordoma or chondrosarcoma.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Proton beam radiation therapy is excluded except for members under age 21\",\n      \"source\": {\"doc\": \"SPD-BRIGHT\", \"section\": \"6.7\"},\n      \"quote\": \"Proton beam radiation therapy is excluded except for members under age 21.\",\n      \"status\": \"NOT_SATISFIED\",\n      \"note\": \"Patient is age 47, which exceeds the age 21 threshold; SPD-BRIGHT is Level 2 authority and overrides the Level 3 medical policy MP-113 v1 that would otherwise cover uveal melanoma.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Pathology report\",\n      \"source\": {\"doc\": \"MP-113 v1\", \"section\": \"5\"},\n      \"quote\": \"Pathology, staging, radiation oncology consult.\"\n    },\n    {\n      \"item\": \"Staging information\",\n      \"source\": {\"doc\": \"MP-113 v1\", \"section\": \"5\"},\n      \"quote\": \"Pathology, staging, radiation oncology consult.\"\n    },\n    {\n      \"item\": \"Radiation oncology consult\",\n      \"source\": {\"doc\": \"MP-113 v1\", \"section\": \"5\"},\n      \"quote\": \"Pathology, staging, radiation oncology consult.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"SPD-BRIGHT section 6.7 excludes proton beam therapy for members age 21 and older\",\n    \"Patient is age 47 on date of service\",\n    \"Medical policy MP-113 v1 criterion for uveal melanoma is met by provider notes\",\n    \"SPD-BRIGHT is Level 2 authority and takes precedence over Level 3 medical policy\",\n    \"All required documentation (pathology, staging, radiation oncology consult) is missing from provider notes\"\n  ],\n  \"summary_for_nurse\": \"The patient has choroidal uveal melanoma, which meets one of the medical policy criteria for proton beam therapy. However, the BRIGHT plan document excludes proton beam therapy for members age 21 and older, and this patient is age 47. The plan exclusion is Level 2 authority and overrides the Level 3 medical policy coverage criteria.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Primary or metastatic tumor of the central nervous system in a member under 21",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-113 v1",
+            "section": "3"
+          },
+          "quote": "Primary or metastatic tumor of the central nervous system in a member under 21",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Patient has choroidal melanoma, not CNS tumor, and is age 47.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "Uveal (ocular) melanoma",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-113 v1",
+            "section": "3"
+          },
+          "quote": "Uveal (ocular) melanoma",
+          "evidence": "Choroidal (uveal) melanoma right eye",
+          "status": "SUPPORTED",
+          "note": "Provider notes document choroidal uveal melanoma.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Chordoma or chondrosarcoma of the skull base or spine",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-113 v1",
+            "section": "3"
+          },
+          "quote": "Chordoma or chondrosarcoma of the skull base or spine",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Patient has choroidal melanoma, not chordoma or chondrosarcoma.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Proton beam radiation therapy is excluded except for members under age 21",
+          "source": {
+            "doc": "SPD-BRIGHT",
+            "section": "6.7"
+          },
+          "quote": "Proton beam radiation therapy is excluded except for members under age 21.",
+          "status": "NOT_SATISFIED",
+          "note": "Patient is age 47, which exceeds the age 21 threshold; SPD-BRIGHT is Level 2 authority and overrides the Level 3 medical policy MP-113 v1 that would otherwise cover uveal melanoma.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Pathology report",
+          "source": {
+            "doc": "MP-113 v1",
+            "section": "5"
+          },
+          "quote": "Pathology, staging, radiation oncology consult.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Staging information",
+          "source": {
+            "doc": "MP-113 v1",
+            "section": "5"
+          },
+          "quote": "Pathology, staging, radiation oncology consult.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Radiation oncology consult",
+          "source": {
+            "doc": "MP-113 v1",
+            "section": "5"
+          },
+          "quote": "Pathology, staging, radiation oncology consult.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "SPD-BRIGHT section 6.7 excludes proton beam therapy for members age 21 and older",
+        "Patient is age 47 on date of service",
+        "Medical policy MP-113 v1 criterion for uveal melanoma is met by provider notes",
+        "SPD-BRIGHT is Level 2 authority and takes precedence over Level 3 medical policy",
+        "All required documentation (pathology, staging, radiation oncology consult) is missing from provider notes"
+      ],
+      "summary_for_nurse": "The patient has choroidal uveal melanoma, which meets one of the medical policy criteria for proton beam therapy. However, the BRIGHT plan document excludes proton beam therapy for members age 21 and older, and this patient is age 47. The plan exclusion is Level 2 authority and overrides the Level 3 medical policy coverage criteria."
+    },
+    "guardrail_checks": {
+      "quotes_total": 7,
+      "quotes_verified": 7,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion NOT_FOUND: Primary or metastatic tumor of the central nervous system in a member under 21",
+        "Criterion NOT_FOUND: Chordoma or chondrosarcoma of the skull base or spine",
+        "Plan provision NOT_SATISFIED: Proton beam radiation therapy is excluded except for members under age 21",
+        "Missing document: Pathology report",
+        "Missing document: Staging information",
+        "Missing document: Radiation oncology consult"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

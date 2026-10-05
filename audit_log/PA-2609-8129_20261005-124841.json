@@ -1,0 +1,181 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:48:41",
+  "case_id": "PA-2609-8129",
+  "inputs": {
+    "client_id": "OSTR",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-IMG-7519",
+    "date_of_service": "2026-10-09",
+    "urgency": "STANDARD",
+    "member_state": "TN",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Exertional chest pressure x 2 months. Pre-test probability assessed as intermediate. Requesting coronary CTA.",
+    "age_sent_to_ai": 44,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-OSTR",
+        "sections": [
+          "5.1"
+        ]
+      },
+      {
+        "doc": "MP-115 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "7d3e78fded37159c",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-OSTR",
+        "section": "5.1"
+      },
+      {
+        "doc": "MP-115 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-115 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-115 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"Stable chest pain or anginal-equivalent symptoms\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-115 v1\", \"section\": \"3\"},\n      \"quote\": \"Stable chest pain or anginal-equivalent symptoms\",\n      \"evidence\": \"Exertional chest pressure x 2 months\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider documents exertional chest pressure for 2 months, which is an anginal-equivalent symptom\"\n    },\n    {\n      \"criterion\": \"Intermediate pre-test probability of coronary artery disease\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-115 v1\", \"section\": \"3\"},\n      \"quote\": \"Intermediate pre-test probability of coronary artery disease\",\n      \"evidence\": \"Pre-test probability assessed as intermediate\",\n      \"evidence\": \"Pre-test probability assessed as intermediate\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider explicitly documents intermediate pre-test probability assessment\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Screening in asymptomatic members is not medically necessary\",\n      \"source\": {\"doc\": \"MP-115 v1\", \"section\": \"4\"},\n      \"quote\": \"Screening in asymptomatic members.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Patient has symptoms (exertional chest pressure), so this exclusion does not apply\"\n    },\n    {\n      \"provision\": \"Low pre-test probability is not medically necessary\",\n      \"source\": {\"doc\": \"MP-115 v1\", \"section\": \"4\"},\n      \"quote\": \"Low pre-test probability.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Provider assessed intermediate, not low, pre-test probability\"\n    },\n    {\n      \"provision\": \"High pre-test probability is not medically necessary (invasive angiography is the appropriate test)\",\n      \"source\": {\"doc\": \"MP-115 v1\", \"section\": \"4\"},\n      \"quote\": \"High pre-test probability (invasive angiography is the appropriate test).\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Provider assessed intermediate, not high, pre-test probability\"\n    },\n    {\n      \"provision\": \"Investigational services are excluded from coverage\",\n      \"source\": {\"doc\": \"MP-117 v1\", \"section\": \"4\"},\n      \"quote\": \"Investigational services are excluded from coverage under every plan Bellcourt administers.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"CCTA for intermediate pre-test probability is standard of care; no investigational concern identified\"\n    }\n  ],\n  \"missing_documents\": [],\n  \"points_for_reviewer\": [\n    \"Both required criteria are documented: stable anginal-equivalent symptoms (exertional chest pressure for 2 months) and intermediate pre-test probability\",\n    \"All exclusions in section 4 are satisfied (patient is symptomatic, has intermediate not low or high pre-test probability)\",\n    \"All required documentation per section 5 is present (symptom description and pre-test probability assessment)\"\n  ],\n  \"summary_for_nurse\": \"The provider documents exertional chest pressure for 2 months with intermediate pre-test probability assessment. Both required criteria from MP-115 v1 section 3 are documented. All documentation requirements from section 5 are present.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "Stable chest pain or anginal-equivalent symptoms",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-115 v1",
+            "section": "3"
+          },
+          "quote": "Stable chest pain or anginal-equivalent symptoms",
+          "evidence": "Exertional chest pressure x 2 months",
+          "status": "SUPPORTED",
+          "note": "Provider documents exertional chest pressure for 2 months, which is an anginal-equivalent symptom",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Intermediate pre-test probability of coronary artery disease",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-115 v1",
+            "section": "3"
+          },
+          "quote": "Intermediate pre-test probability of coronary artery disease",
+          "evidence": "Pre-test probability assessed as intermediate",
+          "status": "SUPPORTED",
+          "note": "Provider explicitly documents intermediate pre-test probability assessment",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Screening in asymptomatic members is not medically necessary",
+          "source": {
+            "doc": "MP-115 v1",
+            "section": "4"
+          },
+          "quote": "Screening in asymptomatic members.",
+          "status": "SATISFIED",
+          "note": "Patient has symptoms (exertional chest pressure), so this exclusion does not apply",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Low pre-test probability is not medically necessary",
+          "source": {
+            "doc": "MP-115 v1",
+            "section": "4"
+          },
+          "quote": "Low pre-test probability.",
+          "status": "SATISFIED",
+          "note": "Provider assessed intermediate, not low, pre-test probability",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "High pre-test probability is not medically necessary (invasive angiography is the appropriate test)",
+          "source": {
+            "doc": "MP-115 v1",
+            "section": "4"
+          },
+          "quote": "High pre-test probability (invasive angiography is the appropriate test).",
+          "status": "SATISFIED",
+          "note": "Provider assessed intermediate, not high, pre-test probability",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Investigational services are excluded from coverage",
+          "source": {
+            "doc": "MP-117 v1",
+            "section": "4"
+          },
+          "quote": "Investigational services are excluded from coverage under every plan Bellcourt administers.",
+          "status": "INFO_ONLY",
+          "note": "CCTA for intermediate pre-test probability is standard of care; no investigational concern identified",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [],
+      "points_for_reviewer": [
+        "Both required criteria are documented: stable anginal-equivalent symptoms (exertional chest pressure for 2 months) and intermediate pre-test probability",
+        "All exclusions in section 4 are satisfied (patient is symptomatic, has intermediate not low or high pre-test probability)",
+        "All required documentation per section 5 is present (symptom description and pre-test probability assessment)"
+      ],
+      "summary_for_nurse": "The provider documents exertional chest pressure for 2 months with intermediate pre-test probability assessment. Both required criteria from MP-115 v1 section 3 are documented. All documentation requirements from section 5 are present."
+    },
+    "guardrail_checks": {
+      "quotes_total": 6,
+      "quotes_verified": 6,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": []
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

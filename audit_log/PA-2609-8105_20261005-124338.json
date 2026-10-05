@@ -1,0 +1,213 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T12:43:38",
+  "case_id": "PA-2609-8105",
+  "inputs": {
+    "client_id": "RB-MA",
+    "product": "MA",
+    "service_code": "BHA-DX-9581",
+    "date_of_service": "2026-10-04",
+    "urgency": "STANDARD",
+    "member_state": "AZ",
+    "eligibility": "ELIGIBLE",
+    "notes_sent_to_ai": "Pt [NAME] ([DOB], [MRN], [PHONE]). Loud snoring, witnessed apneas, Epworth 14. No prior sleep testing. Requesting attended in-lab polysomnography.",
+    "age_sent_to_ai": 65,
+    "identity_removed": {
+      "NAME": 1,
+      "PHONE": 1,
+      "MRN": 1,
+      "DOB": 1
+    }
+  },
+  "intake_issues": [],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "sections": [
+          "2",
+          "4"
+        ]
+      },
+      {
+        "doc": "MP-104 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": [
+      "AZ_MD_SIGNOFF"
+    ]
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "52361d7db7f91826",
+      "from_cache": false
+    },
+    "documents_sent": [
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "2"
+      },
+      {
+        "doc": "RIVERBEND-ADDENDUM",
+        "section": "4"
+      },
+      {
+        "doc": "MP-104 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-104 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-104 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"A home sleep apnea test (HSAT) was performed and was negative, inconclusive, or technically inadequate\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-104 v1\", \"section\": \"3\"},\n      \"quote\": \"A home sleep apnea test (HSAT) was performed and was negative, inconclusive, or technically inadequate\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes state 'No prior sleep testing' so no HSAT was performed.\"\n    },\n    {\n      \"criterion\": \"The member has a significant comorbidity that makes HSAT unreliable (moderate-to-severe COPD, heart failure, neuromuscular disease)\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-104 v1\", \"section\": \"3\"},\n      \"quote\": \"The member has a significant comorbidity that makes HSAT unreliable (moderate-to-severe COPD, heart failure, neuromuscular disease)\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"No comorbidities documented in provider notes.\"\n    },\n    {\n      \"criterion\": \"A sleep disorder other than obstructive sleep apnea is suspected (narcolepsy, parasomnia, periodic limb movement disorder)\",\n      \"logic\": \"one of 3 options (OR)\",\n      \"source\": {\"doc\": \"MP-104 v1\", \"section\": \"3\"},\n      \"quote\": \"A sleep disorder other than obstructive sleep apnea is suspected (narcolepsy, parasomnia, periodic limb movement disorder)\",\n      \"evidence\": null,\n      \"status\": \"NOT_FOUND\",\n      \"note\": \"Provider notes describe classic OSA symptoms only (snoring, witnessed apneas, elevated Epworth).\"\n    },\n    {\n      \"criterion\": \"Medicare coverage rules take precedence for Medicare Advantage members\",\n      \"logic\": \"required (AND) - overrides Bellcourt criteria if Medicare criteria exist\",\n      \"source\": {\"doc\": \"RIVERBEND-ADDENDUM\", \"section\": \"2.1\"},\n      \"quote\": \"For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied\",\n      \"evidence\": null,\n      \"status\": \"NOT_APPLICABLE\",\n      \"note\": \"Client is RB-MA (Medicare Advantage) but polysomnography is not listed in the table of services with confirmed Medicare criteria to apply, so Bellcourt MP-104 criteria govern.\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Initial evaluation for suspected OSA without comorbidities when HSAT has not been attempted is not medically necessary\",\n      \"source\": {\"doc\": \"MP-104 v1\", \"section\": \"4\"},\n      \"quote\": \"Initial evaluation for suspected OSA in a member without the comorbidities above, when HSAT has not been attempted.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"This request matches the limitation: initial OSA evaluation, no documented comorbidities, no prior HSAT attempted.\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"HSAT report if performed\",\n      \"source\": {\"doc\": \"MP-104 v1\", \"section\": \"5\"},\n      \"quote\": \"HSAT report if performed\"\n    },\n    {\n      \"item\": \"Documentation of relevant comorbidities\",\n      \"source\": {\"doc\": \"MP-104 v1\", \"section\": \"5\"},\n      \"quote\": \"documentation of relevant comorbidities\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Patient is 65 years old with RB-MA (Medicare Advantage) product\",\n    \"Provider notes document sleep history (snoring, witnessed apneas) and Epworth score of 14\",\n    \"No prior sleep testing documented; specifically states 'No prior sleep testing'\",\n    \"No comorbidities documented that would make HSAT unreliable\",\n    \"No alternative sleep disorders (narcolepsy, parasomnia, periodic limb movement) documented\",\n    \"Request does not meet any of the three OR criteria in MP-104 section 3\",\n    \"MP-104 section 4 lists this scenario as not medically necessary\"\n  ],\n  \"summary_for_nurse\": \"The member is a 65-year-old Medicare Advantage enrollee with symptoms of obstructive sleep apnea (snoring, witnessed apneas, Epworth 14) and no prior sleep testing. The provider notes do not document any comorbidities that would make home sleep apnea testing unreliable, nor do they indicate suspicion of a sleep disorder other than OSA. None of the three criteria in MP-104 section 3 that would support in-laboratory polysomnography as initial testing are met.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "A home sleep apnea test (HSAT) was performed and was negative, inconclusive, or technically inadequate",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-104 v1",
+            "section": "3"
+          },
+          "quote": "A home sleep apnea test (HSAT) was performed and was negative, inconclusive, or technically inadequate",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes state 'No prior sleep testing' so no HSAT was performed.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "The member has a significant comorbidity that makes HSAT unreliable (moderate-to-severe COPD, heart failure, neuromuscular disease)",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-104 v1",
+            "section": "3"
+          },
+          "quote": "The member has a significant comorbidity that makes HSAT unreliable (moderate-to-severe COPD, heart failure, neuromuscular disease)",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "No comorbidities documented in provider notes.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "A sleep disorder other than obstructive sleep apnea is suspected (narcolepsy, parasomnia, periodic limb movement disorder)",
+          "logic": "one of 3 options (OR)",
+          "source": {
+            "doc": "MP-104 v1",
+            "section": "3"
+          },
+          "quote": "A sleep disorder other than obstructive sleep apnea is suspected (narcolepsy, parasomnia, periodic limb movement disorder)",
+          "evidence": null,
+          "status": "NOT_FOUND",
+          "note": "Provider notes describe classic OSA symptoms only (snoring, witnessed apneas, elevated Epworth).",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        },
+        {
+          "criterion": "Medicare coverage rules take precedence for Medicare Advantage members",
+          "logic": "required (AND) - overrides Bellcourt criteria if Medicare criteria exist",
+          "source": {
+            "doc": "RIVERBEND-ADDENDUM",
+            "section": "2.1"
+          },
+          "quote": "For Medicare Advantage members, where a Medicare National Coverage Determination (NCD) or applicable Local Coverage Determination (LCD) exists, its criteria must be applied",
+          "evidence": null,
+          "status": "NOT_APPLICABLE",
+          "note": "Client is RB-MA (Medicare Advantage) but polysomnography is not listed in the table of services with confirmed Medicare criteria to apply, so Bellcourt MP-104 criteria govern.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": null
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Initial evaluation for suspected OSA without comorbidities when HSAT has not been attempted is not medically necessary",
+          "source": {
+            "doc": "MP-104 v1",
+            "section": "4"
+          },
+          "quote": "Initial evaluation for suspected OSA in a member without the comorbidities above, when HSAT has not been attempted.",
+          "status": "SATISFIED",
+          "note": "This request matches the limitation: initial OSA evaluation, no documented comorbidities, no prior HSAT attempted.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "HSAT report if performed",
+          "source": {
+            "doc": "MP-104 v1",
+            "section": "5"
+          },
+          "quote": "HSAT report if performed",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Documentation of relevant comorbidities",
+          "source": {
+            "doc": "MP-104 v1",
+            "section": "5"
+          },
+          "quote": "documentation of relevant comorbidities",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Patient is 65 years old with RB-MA (Medicare Advantage) product",
+        "Provider notes document sleep history (snoring, witnessed apneas) and Epworth score of 14",
+        "No prior sleep testing documented; specifically states 'No prior sleep testing'",
+        "No comorbidities documented that would make HSAT unreliable",
+        "No alternative sleep disorders (narcolepsy, parasomnia, periodic limb movement) documented",
+        "Request does not meet any of the three OR criteria in MP-104 section 3",
+        "MP-104 section 4 lists this scenario as not medically necessary"
+      ],
+      "summary_for_nurse": "The member is a 65-year-old Medicare Advantage enrollee with symptoms of obstructive sleep apnea (snoring, witnessed apneas, Epworth 14) and no prior sleep testing. The provider notes do not document any comorbidities that would make home sleep apnea testing unreliable, nor do they indicate suspicion of a sleep disorder other than OSA. None of the three criteria in MP-104 section 3 that would support in-laboratory polysomnography as initial testing are met."
+    },
+    "guardrail_checks": {
+      "quotes_total": 7,
+      "quotes_verified": 7,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [
+        "Criterion NOT_FOUND: A home sleep apnea test (HSAT) was performed and was negative, inconclusive, or technically inadequate",
+        "Criterion NOT_FOUND: The member has a significant comorbidity that makes HSAT unreliable (moderate-to-severe COPD, heart failure, neuromuscular disease)",
+        "Criterion NOT_FOUND: A sleep disorder other than obstructive sleep apnea is suspected (narcolepsy, parasomnia, periodic limb movement disorder)",
+        "Missing document: HSAT report if performed",
+        "Missing document: Documentation of relevant comorbidities"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}

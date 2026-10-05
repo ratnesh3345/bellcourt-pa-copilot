@@ -1,0 +1,212 @@
+{
+  "tool_version": "pa-copilot 0.3",
+  "run_at": "2026-10-05T07:31:01",
+  "case_id": "PA-2609-8123",
+  "inputs": {
+    "client_id": "OSTR",
+    "product": "SELF_FUNDED",
+    "service_code": "BHA-REH-9711",
+    "date_of_service": "2026-10-18",
+    "urgency": "STANDARD",
+    "member_state": null,
+    "eligibility": "UNKNOWN",
+    "notes_sent_to_ai": "Post-op R rotator cuff repair. 12 PT visits used this plan year; requesting 6 additional. Shoulder flexion improved 90 to. 140 degrees; goal\u2019 170. QuickDASH 58 to 34. Progress note dated within last 10 visits attached.",
+    "age_sent_to_ai": 47,
+    "identity_removed": {}
+  },
+  "intake_issues": [
+    {
+      "code": "MISSING_MEMBER_ID",
+      "message": "Missing: Member ID."
+    },
+    {
+      "code": "ELIGIBILITY_UNKNOWN",
+      "message": "No member ID: search PACE by name + date of birth, or call the provider."
+    }
+  ],
+  "untrusted_text_flags": [],
+  "rules": {
+    "status": "OK",
+    "governing": [
+      {
+        "doc": "SPD-OSTR",
+        "sections": [
+          "4.2"
+        ]
+      },
+      {
+        "doc": "MP-114 v1",
+        "sections": [
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ],
+    "not_used": [],
+    "flags": []
+  },
+  "ai": {
+    "status": "DONE",
+    "error": null,
+    "llm": {
+      "model": "anthropic/claude-sonnet-4.5",
+      "fingerprint": "5014e2b7442ef78f",
+      "from_cache": true
+    },
+    "documents_sent": [
+      {
+        "doc": "SPD-OSTR",
+        "section": "4.2"
+      },
+      {
+        "doc": "MP-114 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-114 v1",
+        "section": "4"
+      },
+      {
+        "doc": "MP-114 v1",
+        "section": "5"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "3"
+      },
+      {
+        "doc": "MP-117 v1",
+        "section": "4"
+      }
+    ],
+    "raw_answer": "```json\n{\n  \"criteria\": [\n    {\n      \"criterion\": \"A current progress note dated within the last 10 visits\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-114 v1\", \"section\": \"3\"},\n      \"quote\": \"A current progress note (dated within the last 10 visits)\",\n      \"evidence\": \"Progress note dated within last 10 visits attached.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Provider states progress note dated within last 10 visits is attached\"\n    },\n    {\n      \"criterion\": \"Documented measurable functional progress toward stated goals, with goals not yet met\",\n      \"logic\": \"required (AND)\",\n      \"source\": {\"doc\": \"MP-114 v1\", \"section\": \"3\"},\n      \"quote\": \"Documented measurable functional progress toward stated goals, with goals not yet met.\",\n      \"evidence\": \"Shoulder flexion improved 90 to. 140 degrees; goal' 170. QuickDASH 58 to 34.\",\n      \"status\": \"SUPPORTED\",\n      \"note\": \"Shoulder flexion shows 50-degree improvement with 30 degrees remaining to goal; QuickDASH score improved from 58 to 34\"\n    }\n  ],\n  \"plan_provisions\": [\n    {\n      \"provision\": \"Combined annual limit of 30 visits per plan year for outpatient physical, occupational and speech therapy\",\n      \"source\": {\"doc\": \"SPD-OSTR\", \"section\": \"4.2\"},\n      \"quote\": \"Outpatient physical, occupational and speech therapy are limited to a combined 30 visits per plan year.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"12 used + 6 requested = 18 total, which is below the 30-visit limit\"\n    },\n    {\n      \"provision\": \"Visits beyond the 12th require prior authorization and are reviewed under Bellcourt medical policy MP-114\",\n      \"source\": {\"doc\": \"SPD-OSTR\", \"section\": \"4.2\"},\n      \"quote\": \"Visits beyond the 12th require prior authorization and are reviewed under Bellcourt medical policy MP-114.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"This request is for visits 13-18, which require prior authorization per this provision\"\n    },\n    {\n      \"provision\": \"Visits above the annual limit are not covered regardless of medical necessity\",\n      \"source\": {\"doc\": \"SPD-OSTR\", \"section\": \"4.2\"},\n      \"quote\": \"Visits above the annual limit are not covered regardless of medical necessity.\",\n      \"status\": \"INFO_ONLY\",\n      \"note\": \"This provision would apply only if total visits exceeded 30; not applicable to this request\"\n    },\n    {\n      \"provision\": \"Maintenance therapy where no further functional progress is expected is not medically necessary\",\n      \"source\": {\"doc\": \"MP-114 v1\", \"section\": \"4\"},\n      \"quote\": \"Maintenance therapy where no further functional progress is expected.\",\n      \"status\": \"SATISFIED\",\n      \"note\": \"Provider notes show ongoing progress with goals not yet met, so this is not maintenance therapy\"\n    }\n  ],\n  \"missing_documents\": [\n    {\n      \"item\": \"Initial evaluation\",\n      \"source\": {\"doc\": \"MP-114 v1\", \"section\": \"5\"},\n      \"quote\": \"Initial evaluation, most recent progress note with objective measures, visit count.\"\n    },\n    {\n      \"item\": \"Visit count\",\n      \"source\": {\"doc\": \"MP-114 v1\", \"section\": \"5\"},\n      \"quote\": \"Initial evaluation, most recent progress note with objective measures, visit count.\"\n    }\n  ],\n  \"points_for_reviewer\": [\n    \"Provider states 12 visits used this plan year; requesting 6 additional visits would total 18 of 30 annual limit\",\n    \"Progress note is stated to be dated within last 10 visits and attached\",\n    \"Shoulder flexion improved from 90 to 140 degrees with goal of 170 degrees (30 degrees remaining)\",\n    \"QuickDASH score improved from 58 to 34\",\n    \"Initial evaluation and visit count documentation not mentioned in provider notes\"\n  ],\n  \"summary_for_nurse\": \"Request is for 6 additional physical therapy visits (visits 13-18) following right rotator cuff repair. Provider reports measurable functional improvements in shoulder range of motion and QuickDASH scores with goals not yet achieved. The request would remain within the plan's 30-visit annual limit.\"\n}\n```",
+    "checked_answer": {
+      "criteria": [
+        {
+          "criterion": "A current progress note dated within the last 10 visits",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-114 v1",
+            "section": "3"
+          },
+          "quote": "A current progress note (dated within the last 10 visits)",
+          "evidence": "Progress note dated within last 10 visits attached.",
+          "status": "SUPPORTED",
+          "note": "Provider states progress note dated within last 10 visits is attached",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        },
+        {
+          "criterion": "Documented measurable functional progress toward stated goals, with goals not yet met",
+          "logic": "required (AND)",
+          "source": {
+            "doc": "MP-114 v1",
+            "section": "3"
+          },
+          "quote": "Documented measurable functional progress toward stated goals, with goals not yet met.",
+          "evidence": "Shoulder flexion improved 90 to. 140 degrees; goal' 170. QuickDASH 58 to 34.",
+          "status": "SUPPORTED",
+          "note": "Shoulder flexion shows 50-degree improvement with 30 degrees remaining to goal; QuickDASH score improved from 58 to 34",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document.",
+          "evidence_verified": true
+        }
+      ],
+      "plan_provisions": [
+        {
+          "provision": "Combined annual limit of 30 visits per plan year for outpatient physical, occupational and speech therapy",
+          "source": {
+            "doc": "SPD-OSTR",
+            "section": "4.2"
+          },
+          "quote": "Outpatient physical, occupational and speech therapy are limited to a combined 30 visits per plan year.",
+          "status": "SATISFIED",
+          "note": "12 used + 6 requested = 18 total, which is below the 30-visit limit",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Visits beyond the 12th require prior authorization and are reviewed under Bellcourt medical policy MP-114",
+          "source": {
+            "doc": "SPD-OSTR",
+            "section": "4.2"
+          },
+          "quote": "Visits beyond the 12th require prior authorization and are reviewed under Bellcourt medical policy MP-114.",
+          "status": "INFO_ONLY",
+          "note": "This request is for visits 13-18, which require prior authorization per this provision",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Visits above the annual limit are not covered regardless of medical necessity",
+          "source": {
+            "doc": "SPD-OSTR",
+            "section": "4.2"
+          },
+          "quote": "Visits above the annual limit are not covered regardless of medical necessity.",
+          "status": "INFO_ONLY",
+          "note": "This provision would apply only if total visits exceeded 30; not applicable to this request",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "provision": "Maintenance therapy where no further functional progress is expected is not medically necessary",
+          "source": {
+            "doc": "MP-114 v1",
+            "section": "4"
+          },
+          "quote": "Maintenance therapy where no further functional progress is expected.",
+          "status": "SATISFIED",
+          "note": "Provider notes show ongoing progress with goals not yet met, so this is not maintenance therapy",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "missing_documents": [
+        {
+          "item": "Initial evaluation",
+          "source": {
+            "doc": "MP-114 v1",
+            "section": "5"
+          },
+          "quote": "Initial evaluation, most recent progress note with objective measures, visit count.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        },
+        {
+          "item": "Visit count",
+          "source": {
+            "doc": "MP-114 v1",
+            "section": "5"
+          },
+          "quote": "Initial evaluation, most recent progress note with objective measures, visit count.",
+          "quote_verified": true,
+          "check": "Quote found word-for-word in the document."
+        }
+      ],
+      "points_for_reviewer": [
+        "Provider states 12 visits used this plan year; requesting 6 additional visits would total 18 of 30 annual limit",
+        "Progress note is stated to be dated within last 10 visits and attached",
+        "Shoulder flexion improved from 90 to 140 degrees with goal of 170 degrees (30 degrees remaining)",
+        "QuickDASH score improved from 58 to 34",
+        "Initial evaluation and visit count documentation not mentioned in provider notes"
+      ],
+      "summary_for_nurse": "Request is for 6 additional physical therapy visits (visits 13-18) following right rotator cuff repair. Provider reports measurable functional improvements in shoulder range of motion and QuickDASH scores with goals not yet achieved. The request would remain within the plan's 30-visit annual limit."
+    },
+    "guardrail_checks": {
+      "quotes_total": 8,
+      "quotes_verified": 8,
+      "all_quotes_verified": true,
+      "issues": [],
+      "passed": true,
+      "needs_attention": [],
+      "missing_documents": [
+        "Missing document: Initial evaluation",
+        "Missing document: Visit count"
+      ]
+    }
+  },
+  "decision": "NONE - the tool does not make decisions. Decision is recorded by staff in PACE."
+}
