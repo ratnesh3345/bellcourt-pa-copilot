@@ -1,0 +1,121 @@
+audit_id,client_id,service,date_of_service,qa_governing,nurse_cited,nurse_right_document,engine_shows,engine_right,qa_error_type
+QA-26-001,OSTR,Home Health Services,2026-06-09,MP-116 v1 section 3,MP-116 v1,True,SPD-OSTR | MP-116 v1,True,NONE
+QA-26-002,BRIGHT,Continuous Glucose Monitors (CGM),2026-05-15,MP-103 v2 section 3,MP-103 v1,False,SPD-BRIGHT | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-003,RB-MA,Continuous Glucose Monitors (CGM),2026-06-15,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-004,KESTREL,Advanced Imaging: MRI of the Lumbar Spine,2026-07-28,MP-101 v2 section 3,MP-101 v2,True,SPD-KESTREL | MP-101 v2,True,NONE
+QA-26-005,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-02-24,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-006,JUNIPER,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-09-14,SPD-JUNIPER section 4.2,MP-114 v1,False,SPD-JUNIPER | MP-114 v1,True,CLIENT_RULE_MISSED
+QA-26-007,RB-MA,Attended In-Laboratory Polysomnography (Sleep Study),2026-03-12,MP-104 v1 section 3,MP-104 v1,True,RIVERBEND-ADDENDUM | MP-104 v1,True,NONE
+QA-26-008,RB-MA,Bariatric (Weight-Loss) Surgery,2026-01-14,MP-102 v2 section 3,MP-102 v1,False,RIVERBEND-ADDENDUM | MP-102 v2,True,OUTDATED_POLICY_VERSION
+QA-26-009,RB-MA,Bariatric (Weight-Loss) Surgery,2026-04-03,MP-102 v2 section 3,MP-102 v2,True,RIVERBEND-ADDENDUM | MP-102 v2,True,MISSING_INFO_NOT_REQUESTED
+QA-26-010,JUNIPER,Advanced Imaging: MRI of the Lumbar Spine,2026-08-18,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-JUNIPER | MP-101 v2,True,MEMO_CONFLICT
+QA-26-011,RB-ACA,Bariatric (Weight-Loss) Surgery,2026-04-26,MP-102 v2 section 3,MP-102 v2,True,RIVERBEND-ADDENDUM | MP-102 v2,True,NONE
+QA-26-012,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-08-03,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-013,RB-MA,Endovenous Ablation of Varicose Veins,2026-03-17,MP-111 v1 section 3,MP-111 v1,True,RIVERBEND-ADDENDUM | MP-111 v1,True,NONE
+QA-26-014,KESTREL,Bariatric (Weight-Loss) Surgery,2026-03-18,MP-102 v2 section 3,MP-102 v1,False,SPD-KESTREL | MP-102 v2,True,OUTDATED_POLICY_VERSION
+QA-26-015,BRIGHT,Bariatric (Weight-Loss) Surgery,2026-04-30,MP-102 v2 section 3,MP-102 v2,True,SPD-BRIGHT | MP-102 v2,True,CRITERIA_MISREAD
+QA-26-016,HARLAN,Bariatric (Weight-Loss) Surgery,2026-06-05,SPD-HARLAN section 6.4,MP-102 v2,False,SPD-HARLAN | MP-102 v2,True,NONE
+QA-26-017,HARLAN,Advanced Imaging: MRI of the Lumbar Spine,2026-07-13,MP-101 v2 section 3,MP-101 v2,True,SPD-HARLAN | MP-101 v2,True,NONE
+QA-26-018,RB-ACA,Advanced Imaging: MRI of the Lumbar Spine,2026-05-11,MP-101 v2 section 3,MP-101 v2,True,RIVERBEND-ADDENDUM | MP-101 v2,True,CRITERIA_MISREAD
+QA-26-019,KESTREL,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-08-19,MP-114 v1 section 3,MP-114 v1,True,SPD-KESTREL | MP-114 v1,True,CRITERIA_MISREAD
+QA-26-020,HARLAN,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-06-08,MP-114 v1 section 3,MP-114 v1,True,SPD-HARLAN | MP-114 v1,True,NONE
+QA-26-021,HARLAN,Bariatric (Weight-Loss) Surgery,2026-08-02,SPD-HARLAN section 6.4,MP-102 v2,False,SPD-HARLAN | MP-102 v2,True,NONE
+QA-26-022,JUNIPER,Continuous Glucose Monitors (CGM),2026-04-24,MP-103 v2 section 3,MP-103 v1,False,SPD-JUNIPER | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-023,BRIGHT,Advanced Imaging: MRI of the Lumbar Spine,2026-03-26,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-BRIGHT | MP-101 v2,True,MEMO_CONFLICT
+QA-26-024,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-06-28,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-025,RB-MA,Continuous Glucose Monitors (CGM),2026-06-19,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-026,RB-MA,Continuous Glucose Monitors (CGM),2026-07-30,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-027,RB-ACA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-02-10,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,CRITERIA_MISREAD
+QA-26-028,RB-MA,Coronary CT Angiography (CCTA),2026-09-15,MP-115 v1 section 3,MP-115 v1,True,RIVERBEND-ADDENDUM | MP-115 v1,True,NONE
+QA-26-029,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-04-20,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-030,JUNIPER,Advanced Imaging: MRI of the Lumbar Spine,2026-02-14,MP-101 v2 section 3,MP-101 v2,True,SPD-JUNIPER | MP-101 v2,True,NONE
+QA-26-031,JUNIPER,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-07-05,MP-114 v1 section 3,MP-114 v1,True,SPD-JUNIPER | MP-114 v1,True,NONE
+QA-26-032,SORREL,Advanced Imaging: MRI of the Lumbar Spine,2026-09-08,MP-101 v2 section 3,MP-101 v2,True,SPD-SORREL | MP-101 v2,True,NONE
+QA-26-033,RB-MA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-09-10,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-034,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-07-14,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-035,RB-MA,Continuous Glucose Monitors (CGM),2026-05-03,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-036,SORREL,Arthroscopic Knee Surgery,2026-05-10,MP-105 v1 section 3,MP-105 v1,True,SPD-SORREL | MP-105 v1,True,NONE
+QA-26-037,HARLAN,Arthroscopic Knee Surgery,2026-05-16,MP-105 v1 section 3,MP-105 v1,True,SPD-HARLAN | MP-105 v1,True,NONE
+QA-26-038,RB-MA,Attended In-Laboratory Polysomnography (Sleep Study),2026-02-23,MP-104 v1 section 3,MP-104 v1,True,RIVERBEND-ADDENDUM | MP-104 v1,True,NONE
+QA-26-039,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-08-31,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-040,RB-ACA,Advanced Imaging: MRI of the Lumbar Spine,2026-09-07,MP-101 v2 section 3,MP-101 v2,True,RIVERBEND-ADDENDUM | MP-101 v2,True,NONE
+QA-26-041,OSTR,Continuous Glucose Monitors (CGM),2026-03-29,MP-103 v2 section 3,MP-103 v2,True,SPD-OSTR | MP-103 v2,True,NONE
+QA-26-042,HARLAN,Bariatric (Weight-Loss) Surgery,2026-01-18,SPD-HARLAN section 6.4,MP-102 v2,False,SPD-HARLAN | MP-102 v2,True,NONE
+QA-26-043,HARLAN,CPAP Continued Coverage (After the Initial 90 Days),2026-09-18,MP-118 v1 section 3,MP-118 v1,True,SPD-HARLAN | MP-118 v1,True,CRITERIA_MISREAD
+QA-26-044,KESTREL,Continuous Glucose Monitors (CGM),2026-08-07,MP-103 v2 section 3,MP-103 v2,True,SPD-KESTREL | MP-103 v2,True,NONE
+QA-26-045,BRIGHT,Total Knee Arthroplasty (TKA),2026-09-12,MP-106 v2 section 3,MP-106 v1,False,SPD-BRIGHT | MP-106 v2,True,OUTDATED_POLICY_VERSION
+QA-26-046,HARLAN,Advanced Imaging: MRI of the Lumbar Spine,2026-06-30,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-HARLAN | MP-101 v2,True,MEMO_CONFLICT
+QA-26-047,HARLAN,Blepharoplasty (Upper Eyelid Surgery),2026-07-18,MP-108 v1 section 3,MP-108 v1,True,SPD-HARLAN | MP-108 v1,True,NONE
+QA-26-048,HARLAN,Attended In-Laboratory Polysomnography (Sleep Study),2026-08-20,MP-104 v1 section 3,MP-104 v1,True,SPD-HARLAN | MP-104 v1,True,NONE
+QA-26-049,RB-MA,Home Health Services,2026-07-10,MP-116 v1 section 3,MP-116 v1,True,RIVERBEND-ADDENDUM | MP-116 v1,True,NONE
+QA-26-050,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-02-14,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-051,HARLAN,Endovenous Ablation of Varicose Veins,2026-02-04,MP-111 v1 section 3,MP-111 v1,True,SPD-HARLAN | MP-111 v1,True,NONE
+QA-26-052,BRIGHT,Advanced Imaging: MRI of the Lumbar Spine,2026-07-27,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-BRIGHT | MP-101 v2,True,MEMO_CONFLICT
+QA-26-053,RB-MA,Total Knee Arthroplasty (TKA),2026-05-28,MP-106 v2 section 3,MP-106 v1,False,RIVERBEND-ADDENDUM | MP-106 v2,True,OUTDATED_POLICY_VERSION
+QA-26-054,RB-MA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-01-12,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-055,HARLAN,Bariatric (Weight-Loss) Surgery,2026-06-21,SPD-HARLAN section 6.4,MP-102 v2,False,SPD-HARLAN | MP-102 v2,True,NONE
+QA-26-056,RB-ACA,Continuous Glucose Monitors (CGM),2026-08-06,MP-103 v2 section 3,MP-103 v1,False,RIVERBEND-ADDENDUM | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-057,RB-MA,Hyperbaric Oxygen Therapy (HBOT),2026-07-25,MP-112 v1 section 3,MP-112 v1,True,RIVERBEND-ADDENDUM | MP-112 v1,True,NONE
+QA-26-058,BRIGHT,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-09-09,SPD-BRIGHT section 4.2,MP-114 v1,False,SPD-BRIGHT | MP-114 v1,True,CLIENT_RULE_MISSED
+QA-26-059,RB-MA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-06-09,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-060,RB-MA,Continuous Glucose Monitors (CGM),2026-02-20,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-061,RB-MA,Coronary CT Angiography (CCTA),2026-05-01,MP-115 v1 section 3,MP-115 v1,True,RIVERBEND-ADDENDUM | MP-115 v1,True,NONE
+QA-26-062,RB-ACA,CPAP Continued Coverage (After the Initial 90 Days),2026-06-25,MP-118 v1 section 3,MP-118 v1,True,RIVERBEND-ADDENDUM | MP-118 v1,True,NONE
+QA-26-063,HARLAN,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-02-10,SPD-HARLAN section 4.2,MP-114 v1,False,SPD-HARLAN | MP-114 v1,True,CLIENT_RULE_MISSED
+QA-26-064,HARLAN,Continuous Glucose Monitors (CGM),2026-05-19,MP-103 v2 section 3,MP-103 v1,False,SPD-HARLAN | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-065,RB-MA,Spinal Cord Stimulator (SCS) Trial,2026-03-10,MP-110 v2 section 3,MP-110 v1,False,RIVERBEND-ADDENDUM | MP-110 v2,True,OUTDATED_POLICY_VERSION
+QA-26-066,HARLAN,Attended In-Laboratory Polysomnography (Sleep Study),2026-08-09,MP-104 v1 section 3,MP-104 v1,True,SPD-HARLAN | MP-104 v1,True,NONE
+QA-26-067,RB-ACA,Continuous Glucose Monitors (CGM),2026-03-11,MP-103 v2 section 3,MP-103 v1,False,RIVERBEND-ADDENDUM | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-068,RB-MA,Blepharoplasty (Upper Eyelid Surgery),2026-01-28,MP-108 v1 section 3,MP-108 v1,True,RIVERBEND-ADDENDUM | MP-108 v1,True,NONE
+QA-26-069,RB-ACA,Advanced Imaging: MRI of the Lumbar Spine,2026-04-30,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-070,RB-MA,Proton Beam Radiation Therapy,2026-02-10,MP-113 v1 section 3,MP-113 v1,True,RIVERBEND-ADDENDUM | MP-113 v1,True,CRITERIA_MISREAD
+QA-26-071,HARLAN,Proton Beam Radiation Therapy,2026-01-24,MP-113 v1 section 3,MP-113 v1,True,SPD-HARLAN | MP-113 v1,True,NONE
+QA-26-072,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-05-24,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,RIVERBEND-ADDENDUM | MP-101 v2,True,MEMO_CONFLICT
+QA-26-073,RB-ACA,Septoplasty,2026-05-17,MP-109 v1 section 3,MP-109 v1,True,RIVERBEND-ADDENDUM | MP-109 v1,True,NONE
+QA-26-074,RB-MA,Arthroscopic Knee Surgery,2026-01-11,MP-105 v1 section 3,MP-105 v1,True,RIVERBEND-ADDENDUM | MP-105 v1,True,NONE
+QA-26-075,RB-MA,Attended In-Laboratory Polysomnography (Sleep Study),2026-05-04,MP-104 v1 section 3,MP-104 v1,True,RIVERBEND-ADDENDUM | MP-104 v1,True,CRITERIA_MISREAD
+QA-26-076,RB-MA,Blepharoplasty (Upper Eyelid Surgery),2026-04-21,MP-108 v1 section 3,MP-108 v1,True,RIVERBEND-ADDENDUM | MP-108 v1,True,NONE
+QA-26-077,KESTREL,Continuous Glucose Monitors (CGM),2026-04-03,MP-103 v2 section 3,MP-103 v1,False,SPD-KESTREL | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-078,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-04-16,MP-101 v2 section 3,MP-101 v2,True,RIVERBEND-ADDENDUM | MP-101 v2,True,NONE
+QA-26-079,RB-MA,Attended In-Laboratory Polysomnography (Sleep Study),2026-08-12,MP-104 v1 section 3,MP-104 v1,True,RIVERBEND-ADDENDUM | MP-104 v1,True,NONE
+QA-26-080,BRIGHT,CPAP Continued Coverage (After the Initial 90 Days),2026-05-13,MP-118 v1 section 3,MP-118 v1,True,SPD-BRIGHT | MP-118 v1,True,NONE
+QA-26-081,HARLAN,Continuous Glucose Monitors (CGM),2026-03-15,MP-103 v2 section 3,MP-103 v1,False,SPD-HARLAN | MP-103 v2,True,OUTDATED_POLICY_VERSION
+QA-26-082,HARLAN,Hyperbaric Oxygen Therapy (HBOT),2026-08-11,MP-112 v1 section 3,MP-112 v1,True,SPD-HARLAN | MP-112 v1,True,MISSING_INFO_NOT_REQUESTED
+QA-26-083,HARLAN,Spinal Cord Stimulator (SCS) Trial,2026-05-30,MP-110 v2 section 3,MP-110 v2,True,SPD-HARLAN | MP-110 v2,True,NONE
+QA-26-084,BRIGHT,Septoplasty,2026-09-03,MP-109 v1 section 3,MP-109 v1,True,SPD-BRIGHT | MP-109 v1,True,NONE
+QA-26-085,KESTREL,Bariatric (Weight-Loss) Surgery,2026-03-19,MP-102 v2 section 3,MP-102 v1,False,SPD-KESTREL | MP-102 v2,True,OUTDATED_POLICY_VERSION
+QA-26-086,HARLAN,Septoplasty,2026-08-19,MP-109 v1 section 3,MP-109 v1,True,SPD-HARLAN | MP-109 v1,True,MISSING_INFO_NOT_REQUESTED
+QA-26-087,BRIGHT,Continuous Glucose Monitors (CGM),2026-03-25,MP-103 v2 section 3,MP-103 v2,True,SPD-BRIGHT | MP-103 v2,True,NONE
+QA-26-088,RB-MA,Advanced Imaging: MRI of the Lumbar Spine,2026-03-13,MP-101 v2 section 3,MP-101 v2,True,RIVERBEND-ADDENDUM | MP-101 v2,True,NONE
+QA-26-089,RB-MA,Spinal Cord Stimulator (SCS) Trial,2026-01-25,MP-110 v2 section 3,MP-110 v2,True,RIVERBEND-ADDENDUM | MP-110 v2,True,NONE
+QA-26-090,KESTREL,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-03-16,SPD-KESTREL section 4.2,MP-114 v1,False,SPD-KESTREL | MP-114 v1,True,CLIENT_RULE_MISSED
+QA-26-091,JUNIPER,Septoplasty,2026-07-06,MP-109 v1 section 3,MP-109 v1,True,SPD-JUNIPER | MP-109 v1,True,CRITERIA_MISREAD
+QA-26-092,KESTREL,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-09-14,SPD-KESTREL section 4.2,MP-114 v1,False,SPD-KESTREL | MP-114 v1,True,NONE
+QA-26-093,RB-ACA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-08-06,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-094,RB-MA,Continuous Glucose Monitors (CGM),2026-07-21,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-095,BRIGHT,Bariatric (Weight-Loss) Surgery,2026-04-01,SPD-BRIGHT section 5.3,MP-102 v2,False,SPD-BRIGHT | MP-102 v2,True,CLIENT_RULE_MISSED
+QA-26-096,RB-MA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-04-22,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-097,RB-MA,Continuous Glucose Monitors (CGM),2026-02-16,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-098,RB-MA,Continuous Glucose Monitors (CGM),2026-07-07,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-099,BRIGHT,Home Health Services,2026-03-28,MP-116 v1 section 3,MP-116 v1,True,SPD-BRIGHT | MP-116 v1,True,CRITERIA_MISREAD
+QA-26-100,RB-MA,Continuous Glucose Monitors (CGM),2026-05-16,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-101,RB-MA,Continuous Glucose Monitors (CGM),2026-07-12,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-102,RB-MA,Endovenous Ablation of Varicose Veins,2026-09-20,MP-111 v1 section 3,MP-111 v1,True,RIVERBEND-ADDENDUM | MP-111 v1,True,NONE
+QA-26-103,KESTREL,Bariatric (Weight-Loss) Surgery,2026-08-23,MP-102 v2 section 3,MP-102 v2,True,SPD-KESTREL | MP-102 v2,True,CLIENT_RULE_MISSED
+QA-26-104,RB-MA,Continuous Glucose Monitors (CGM),2026-04-02,RIVERBEND-ADDENDUM section 2.1,MP-103 v2,False,RIVERBEND-ADDENDUM | MP-103 v2,True,NONE
+QA-26-105,HARLAN,Genetic Testing for Hereditary Breast and Ovarian Cancer (BRCA1/2),2026-05-31,MP-107 v1 section 3,MP-107 v1,True,SPD-HARLAN | MP-107 v1,True,CRITERIA_MISREAD
+QA-26-106,HARLAN,Advanced Imaging: MRI of the Lumbar Spine,2026-01-28,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-HARLAN | MP-101 v2,True,MEMO_CONFLICT
+QA-26-107,SORREL,Total Knee Arthroplasty (TKA),2026-01-10,MP-106 v2 section 3,MP-106 v1,False,SPD-SORREL | MP-106 v2,True,OUTDATED_POLICY_VERSION
+QA-26-108,RB-MA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-09-12,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-109,OSTR,Advanced Imaging: MRI of the Lumbar Spine,2026-06-11,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-OSTR | MP-101 v2,True,MEMO_CONFLICT
+QA-26-110,RB-MA,Blepharoplasty (Upper Eyelid Surgery),2026-05-10,MP-108 v1 section 3,MP-108 v1,True,RIVERBEND-ADDENDUM | MP-108 v1,True,NONE
+QA-26-111,HARLAN,Advanced Imaging: MRI of the Lumbar Spine,2026-01-18,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-HARLAN | MP-101 v2,True,MEMO_CONFLICT
+QA-26-112,RB-MA,Bariatric (Weight-Loss) Surgery,2026-05-03,MP-102 v2 section 3,MP-102 v2,True,RIVERBEND-ADDENDUM | MP-102 v2,True,NONE
+QA-26-113,RB-MA,Arthroscopic Knee Surgery,2026-08-12,MP-105 v1 section 3,MP-105 v1,True,RIVERBEND-ADDENDUM | MP-105 v1,True,NONE
+QA-26-114,SORREL,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-04-14,MP-114 v1 section 3,MP-114 v1,True,SPD-SORREL | MP-114 v1,True,NONE
+QA-26-115,KESTREL,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-05-20,SPD-KESTREL section 4.2,MP-114 v1,False,SPD-KESTREL | MP-114 v1,True,CLIENT_RULE_MISSED
+QA-26-116,SORREL,Advanced Imaging: MRI of the Lumbar Spine,2026-05-04,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-SORREL | MP-101 v2,True,MEMO_CONFLICT
+QA-26-117,RB-MA,CPAP Continued Coverage (After the Initial 90 Days),2026-04-14,MP-118 v1 section 3,MP-118 v1,True,RIVERBEND-ADDENDUM | MP-118 v1,True,NONE
+QA-26-118,HARLAN,Advanced Imaging: MRI of the Lumbar Spine,2026-06-10,MP-101 v2 section 3,MP-101 v1; UM-MEMO-2025-19,False,SPD-HARLAN | MP-101 v2,True,MEMO_CONFLICT
+QA-26-119,RB-MA,Outpatient Physical Therapy Beyond the Initial 12 Visits,2026-05-14,MP-114 v1 section 3,MP-114 v1,True,RIVERBEND-ADDENDUM | MP-114 v1,True,NONE
+QA-26-120,JUNIPER,Advanced Imaging: MRI of the Lumbar Spine,2026-05-19,MP-101 v2 section 3,MP-101 v2,True,SPD-JUNIPER | MP-101 v2,True,NONE
