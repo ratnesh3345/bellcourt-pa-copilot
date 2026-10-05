@@ -45,7 +45,10 @@ STATE_RULES = [
 def load_index() -> list:
     """Load kb/index.json once (run build_kb.py first)."""
     if not KB_INDEX.exists():
-        raise FileNotFoundError("kb/index.json not found. Run:  python build_kb.py")
+        # First run on a fresh copy: build the index from the Library PDFs (takes ~10 seconds).
+        from copilot.kb_builder import build
+        print("kb/index.json not found: building it from the knowledge base now...")
+        build()
     return json.loads(KB_INDEX.read_text(encoding="utf-8"))
 
 
