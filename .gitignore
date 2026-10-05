@@ -1,0 +1,21 @@
+# secrets: never commit
+.env
+.env.*
+!.env.example
+
+# generated (rebuild with: python build_kb.py)
+kb/
+
+# local leftovers
+*.zip
+*.tmp
+audit_log/TEST-*
+
+# personal interview notes (kept locally)
+docs/INTERVIEW_PREP.md
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
