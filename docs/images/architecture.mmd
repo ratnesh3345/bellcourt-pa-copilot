@@ -1,0 +1,44 @@
+flowchart LR
+    subgraph EX["Existing Bellcourt systems · unchanged, read-only"]
+        FAX["Fax server share"]
+        PORTAL["Provider portal webhook"]
+        PACE["PACE read-only replica"]
+        ELIG["Nightly eligibility files"]
+        LIB["UM Library · ~1,100 files"]
+    end
+    subgraph CP["PA Copilot · runs next to PACE (Azure tenant, HIPAA BAA)"]
+        KB[("KB index<br/>type · version · effective dates · client<br/>needs-review list")]
+        S1["1 Intake<br/>local OCR + label parser<br/>deadline from RECEIPT"]
+        S2["2 Eligibility<br/>covered on DOS? state?"]
+        S3["3 Rule finder · NO AI<br/>GOV-01 order, version by DOS,<br/>amendments, flags AZ/TX/Medicare"]
+        S4["4 Safety + privacy<br/>flag planted instructions,<br/>remove identity"]
+        S5["5 AI reviewer · RAG<br/>criteria · evidence · missing docs<br/>exact quotes, no decision field"]
+        S6["6 Guardrails · code<br/>quote check · verdict removal<br/>OR/AND groups"]
+        AUD[("Audit log<br/>inputs + outputs per run")]
+    end
+    subgraph HU["Humans decide"]
+        IC["Intake coordinator<br/>confirms fields · sends info request"]
+        RN["Nurse<br/>approves or refers"]
+        MD["Physician<br/>only role that denies<br/>AZ MA: AZ-licensed MD"]
+    end
+    LIB -.->|build index| KB
+    FAX --> S1
+    PORTAL --> S1
+    PACE --> S1
+    ELIG --> S2
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6
+    KB --> S3
+    S6 --> IC
+    S6 --> RN --> MD
+    S3 -.-> AUD
+    S5 -.-> AUD
+    S6 -.-> AUD
+    classDef ai fill:#fff3d6,stroke:#c98a00,color:#1c2230;
+    classDef human fill:#e6f4ec,stroke:#1f7a4a,color:#1c2230;
+    classDef code fill:#e8f0fb,stroke:#2f5bd3,color:#1c2230;
+    class S5 ai;
+    class IC,RN,MD human;
+    class S1,S2,S3,S4,S6 code;
+    style EX fill:#f6f7f9,stroke:#9aa3b4
+    style CP fill:#fbfcfe,stroke:#2f5bd3
+    style HU fill:#f3faf6,stroke:#1f7a4a
