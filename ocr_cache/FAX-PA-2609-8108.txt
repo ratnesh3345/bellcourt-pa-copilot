@@ -1,0 +1,53 @@
+FROM: VALLEY SPINE & PAIN FAX (555) 0131-3358 8168 P,1/2
+
+PRIOR AUTHORIZATION REQUEST FORM
+
+Send to: Bellcourt Health Administrators - Utilization Management Fax: (615) 555-0142
+
+Review type: [X] Standard [ ] Urgent/ expedited
+
+ 
+
+ 
+
+Patient name: Joshua Sandoval
+Date of birth: 07/04/2001
+Member ID: RBA64411830
+
+ 
+
+Health plan / employer:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requesting provider: Valley Spine & Pain
+
+NPI; , 1489322982
+
+Service requested: Advanced Imaging: MRI of the Lumbar Spine
+
+Planned date of service: 09/27/2026
+
+Diagnosis (ICD-10): M54.16 .
+
+ 
+
+Clinical information / medical necessity:
+Patient presents with low back pain, no radiation below the knee, neuro exam intact. Has
+completed 4 weeks of PT and scheduled naproxen without adequate relief. Requesting MRI
+lumbar spine without contrast.
+
+Provider signature: Date: 09/22/2026
+
+ 
+
+CONFIDENTIAL: Contains protected health information
+

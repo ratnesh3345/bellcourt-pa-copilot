@@ -1,0 +1,53 @@
+FROM: METRO WOUND & HYPERBARIC . FAX (555) 0163-8658 8102. P.1/2
+
+PRIOR AUTHORIZATION REQUEST FORM
+
+Send to: Bellcourt Health Administrators - Utilization Management Fax: (615) 555-0142
+
+ 
+
+ 
+
+Review type: [X]Standard [ ] Urgent/ expedited
+Patient name: Luis Quintero
+
+Date of birth: 02/09/1973
+
+Member ID: RBM98414138
+
+ 
+
+Health plan / employer:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requesting provider: Metro Wound & Hyperbaric
+
+NPI: 1782361729
+
+Service requested: CPAP Continued Coverage (After the Initial 90.Days)
+Planned date of service: 10/18/2026
+
+Diagnosis (ICD-10): G47.33
+
+ 
+
+Clinical information / medical necessity:
+
+OSA on CPAP since initial setup ~80 days ago. Download (30 consecutive days): usage >= 4
+hrs on 45% of nights. Requesting continued CPAP coverage.
+
+Provider signature: Date: 09/20/2026
+
+ 
+
+CONFIDENTIAL: contains protected health information
+

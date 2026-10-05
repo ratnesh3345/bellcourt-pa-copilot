@@ -1,0 +1,51 @@
+FROM: BUCKEYE VASCULAR CLINIC. -FAX (555) 0117-4899... 8104 P.1/2
+
+PRIOR AUTHORIZATION REQUEST FORM
+Send to: Bellcourt Health Administrators - Utilization Management. Fax: (615).555-0142
+
+Review type: [X] Standard [1] Urgent / expedited
+
+ 
+
+ 
+
+Patient name: James Montoya
+Date of birth: 11/23/1957
+Member ID: RBM16494776
+
+ 
+
+Health plan /.employer:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requesting provider. Buckeye Vascular Clinic
+NPI: 1178034645
+
+Service requested: Home Health Services
+Planned date of service: 10/01/2026
+
+Diagnosis (ICD-10): : 189.154
+
+ 
+
+Clinical information / medical necessity:
+Leaves home only for medical visits with assistance of walker and caregiver;
+
+considerable effort. Needs skilled nursing for wound care and IV antibiotic teaching.
+Plan of care signed by Dr. Osei.
+
+ 
+
+Provider signature: . Date: 09/22/2026
+
+CONFIDENTIAL: contains protected health information
+

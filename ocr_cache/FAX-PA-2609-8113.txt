@@ -1,0 +1,52 @@
+FROM: FRONT ‘RANGE SLEEP CENTER. -FAX (555): 8157-2605 8113 P.1/2
+
+UNIVERSAL PRE-SERVICE REVIEW REQUEST.
+Send to: Bellcourt Health Administrators - Utilization Management - Fax: (615) 555-0142
+
+Review type: [-] Standard . [ X] Urgent/ expedited
+
+ 
+
+ 
+
+Patient name: Daniel Brooks
+Date of birth: 04/09/1982
+Member JD:
+
+ 
+
+Health plan / employer:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requesting provider: Front Range Sleep Center
+
+NPI: 1514845041
+
+Service requested: Advanced Imaging: MRI.of the Lumbar Spine
+Planned date of service: 10/07/2026
+
+Diagnosis (ICD-10): M54.16
+
+ 
+
+Clinical information / medical necessity:
+
+Patient presents with low back pain radiating down the left leg in an-L5 distribution
+With positive straight-leg raise. Has completed 8 weeks of PT-and scheduled naproxen
+without adequate relief..Requesting MRI lumbar spine without contrast.
+
+Provider-signature: Date: 09/22/2026
+
+ 
+
+CONFIDENTIAL: contains protected health ‘information
+
